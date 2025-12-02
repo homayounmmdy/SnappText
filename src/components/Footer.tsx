@@ -6,7 +6,7 @@ const Footer = () => {
       <div className="max-w-6xl mx-auto ">
         <p className="flex justify-center items-center gap-2.5 ">
           Created by <Heart /> See more in my{" "}
-          <a href="https://github.com/homayunmmdy" title="github">
+          <a href="https://github.com/homayounmmdy" title="github">
             <Github />
           </a>
         </p>
