@@ -7,37 +7,52 @@ const Header = () => {
   if (!context) return null;
   const { dispatch } = context;
 
-  return (
-    <header className="relative bg-yellow-300 text-gray-900 p-6 border-4 border-black overflow-hidden">
-      {/* Doodle decorations */}
-      <div className="absolute top-2 left-4 w-8 h-8 border-4 border-red-500 rounded-full"></div>
-      <div className="absolute bottom-2 right-8 w-6 h-6 border-4 border-blue-500 rotate-45"></div>
-      <div className="absolute top-1/2 right-4 w-10 h-10 border-4 border-purple-500 rounded-full opacity-50"></div>
-      
-      {/* Squiggly lines */}
-      <svg className="absolute top-0 left-20 w-32 h-8" viewBox="0 0 100 20">
-        <path d="M0 10 Q 25 0, 50 10 T 100 10" stroke="#ef4444" strokeWidth="3" fill="none" strokeLinecap="round"/>
-      </svg>
+    return (
+    <header className="bg-yellow-300 text-gray-900 p-6 relative overflow-hidden">
+      {/* Doodle background patterns */}
+      <div className="absolute inset-0 opacity-10">
+        <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <pattern id="doodles" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
+              <circle cx="20" cy="20" r="2" fill="currentColor"/>
+              <circle cx="80" cy="60" r="3" fill="currentColor"/>
+              <path d="M 40 40 Q 45 35, 50 40" stroke="currentColor" fill="none" strokeWidth="2"/>
+              <path d="M 70 20 L 75 25 L 70 30" stroke="currentColor" fill="none" strokeWidth="2"/>
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#doodles)"/>
+        </svg>
+      </div>
       
       <div className="max-w-6xl mx-auto flex justify-between items-center relative z-10">
-        <div className="transform -rotate-1">
-          <h1 className="text-2xl md:text-4xl font-black tracking-tight" 
-              style={{ fontFamily: 'Comic Sans MS, cursive' }}>
-            Snapp Text ✨
+        <div>
+          <h1 className="text-2xl md:text-3xl font-bold relative inline-block">
+            <span className="relative z-10">Snapp Text</span>
+            {/* Hand-drawn underline */}
+            <svg className="absolute -bottom-2 left-0 w-full" height="8" xmlns="http://www.w3.org/2000/svg">
+              <path d="M 0 4 Q 25 2, 50 4 T 100 4" stroke="#ef4444" strokeWidth="3" fill="none" strokeLinecap="round"/>
+            </svg>
           </h1>
-          <p className="text-gray-800 hidden md:block mt-1 font-bold">
-            Quick snippets, instant copy 📝
-          </p>
+          <p className="text-gray-700 hidden md:block mt-3 font-medium">Quick snippets, instant copy ✨</p>
         </div>
         <button
           onClick={() => dispatch({ type: "OPEN_FORM" })}
-          className="relative bg-pink-400 hover:bg-pink-500 px-6 py-3 cursor-pointer border-4 border-black rounded-2xl flex items-center gap-2 transition-all transform hover:scale-105 hover:rotate-2 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] font-bold"
+          className="bg-white hover:bg-red-50 text-gray-900 px-4 py-2 cursor-pointer rounded-2xl flex items-center gap-2 transition-all hover:scale-105 hover:rotate-1 font-bold shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] border-3 border-black relative group"
         >
-          <Plus className="w-5 h-5" strokeWidth={3} />
+          <Plus className="w-4 h-4 group-hover:rotate-90 transition-transform" />
           Add Snippet
-          <div className="absolute -top-2 -right-2 w-4 h-4 bg-red-500 border-2 border-black rounded-full"></div>
+          {/* Doodle decoration */}
+          <svg className="absolute -top-2 -right-2 w-6 h-6" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="8" fill="#fbbf24" stroke="#000" strokeWidth="2"/>
+            <path d="M 8 12 L 12 8 L 16 12" stroke="#000" strokeWidth="2" fill="none"/>
+          </svg>
         </button>
       </div>
+      
+      {/* Wavy bottom border */}
+      <svg className="absolute bottom-0 left-0 w-full" height="20" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+  <path d="M 0 10 Q 250 0, 500 10 T 1000 10 T 1500 10 T 2000 10 L 2000 20 L 0 20 Z" fill="#fef3c7"/>
+</svg>
     </header>
   );
 };
