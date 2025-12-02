@@ -5,16 +5,16 @@ import { AppContext, copyToClipboard } from "../Utility/util";
 
 const Workspace: React.FC = () => {
   const context = useContext(AppContext);
-
+  
   if (!context) return null;
   const { state, dispatch } = context;
-
+  
   const handleCopyWorkspace = async () => {
     if (!state.workspaceText.trim()) {
       toast.error("Nothing to copy");
       return;
     }
-
+    
     const success = await copyToClipboard(state.workspaceText);
     if (success) {
       toast.success("Copied to clipboard!");
@@ -22,22 +22,27 @@ const Workspace: React.FC = () => {
       toast.error("Failed to copy");
     }
   };
-
+  
   const handleClearWorkspace = () => {
     dispatch({ type: "SET_WORKSPACE_TEXT", text: "" });
     toast.success("Workspace cleared");
   };
-
+  
   return (
     <>
-      <section className="bg-white rounded-lg shadow-md border-l-4 border-red-500">
-        <div className="p-4 sm:p-6">
-          <div className="flex  gap-1 justify-between items-center mb-4">
+      <section className="bg-white rounded-3xl shadow-lg border-4 border-black relative overflow-hidden">
+        {/* Doodle decorative elements */}
+        <div className="absolute top-0 right-0 w-32 h-32 bg-yellow-300 rounded-full -translate-y-16 translate-x-16 opacity-50"></div>
+        <div className="absolute bottom-0 left-0 w-24 h-24 bg-blue-300 rounded-full translate-y-12 -translate-x-12 opacity-50"></div>
+        
+        <div className="p-4 sm:p-6 relative z-10">
+          <div className="flex gap-1 justify-between items-center mb-4">
             <div>
-              <h2 className="sm:text-xl font-semibold text-gray-800">
+              <h2 className="sm:text-xl font-bold text-gray-900 relative inline-block">
                 Workspace
+                <span className="absolute -bottom-1 left-0 w-full h-2 bg-yellow-300 -z-10"></span>
               </h2>
-              <p className="text-gray-600 hidden md:block text-sm mt-1">
+              <p className="text-gray-700 hidden md:block text-sm mt-2 font-medium">
                 Paste or edit your content here. Copied snippets appear
                 automatically.
               </p>
@@ -46,35 +51,43 @@ const Workspace: React.FC = () => {
               {state.workspaceText.trim() && (
                 <button
                   onClick={handleClearWorkspace}
-                  className="p-1.5 sm:px-3 sm:py-2 text-gray-600 cursor-pointer hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors text-sm font-medium"
+                  className="p-1.5 sm:px-4 sm:py-2 text-gray-800 cursor-pointer bg-white border-3 border-black rounded-full hover:bg-red-100 hover:shadow-lg transform hover:-translate-y-0.5 transition-all text-sm font-bold"
                 >
                   Clear
                 </button>
               )}
-           
+              
               <button
                 onClick={handleCopyWorkspace}
                 disabled={!state.workspaceText.trim()}
-                className="p-1.5 sm:px-3 sm:py-2 bg-red-500 cursor-pointer hover:bg-red-600 disabled:bg-gray-300 disabled:cursor-not-allowed text-white rounded-lg flex items-center gap-2 transition-colors"
+                className="p-1.5 sm:px-4 sm:py-2 bg-gradient-to-r from-pink-400 to-purple-500 cursor-pointer hover:from-pink-500 hover:to-purple-600 disabled:from-gray-300 disabled:to-gray-400 disabled:cursor-not-allowed text-white rounded-full border-3 border-black flex items-center gap-2 transition-all font-bold shadow-md hover:shadow-xl transform hover:-translate-y-0.5"
               >
                 <Copy className="w-4 h-4" />
                 Copy
               </button>
             </div>
           </div>
-
-          <textarea
-            value={state.workspaceText}
-            onChange={(e) =>
-              dispatch({ type: "SET_WORKSPACE_TEXT", text: e.target.value })
-            }
-            placeholder="Paste your content here or copy a snippet above to see the result..."
-            className="w-full h-64 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent resize-y font-mono text-sm leading-relaxed"
-          />
-
-          <div className="flex justify-between items-center mt-2 text-sm text-gray-500">
-            <span>{state.workspaceText.length} characters</span>
-            <span>{state.workspaceText.split("\n").length} lines</span>
+          
+          <div className="relative">
+            <textarea
+              value={state.workspaceText}
+              onChange={(e) =>
+                dispatch({ type: "SET_WORKSPACE_TEXT", text: e.target.value })
+              }
+              placeholder="Paste your content here or copy a snippet above to see the result..."
+              className="w-full h-64 px-4 py-3 border-3 border-black rounded-2xl focus:ring-4 focus:ring-yellow-300 focus:border-black resize-y font-mono text-sm leading-relaxed bg-gradient-to-br from-white to-blue-50 shadow-inner"
+            />
+            {/* Decorative corner accent */}
+            <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-pink-400 rounded-full border-3 border-black"></div>
+          </div>
+          
+          <div className="flex justify-between items-center mt-4 text-sm text-gray-700 font-bold">
+            <span className="bg-yellow-200 px-3 py-1 rounded-full border-2 border-black">
+              {state.workspaceText.length} characters
+            </span>
+            <span className="bg-blue-200 px-3 py-1 rounded-full border-2 border-black">
+              {state.workspaceText.split("\n").length} lines
+            </span>
           </div>
         </div>
       </section>
