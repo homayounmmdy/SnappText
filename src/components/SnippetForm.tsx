@@ -252,7 +252,7 @@ const SnippetForm = () => {
               placeholder="Enter snippet content. Use {{placeholder}} for variables."
             />
             <p className="doodle-hint mt-2">
-              Use <Badge color="yellow">{"{{variable}}"}</Badge> syntax for placeholders
+              Use <Badge color="badge-yellow">{"{{variable}}"}</Badge> syntax for placeholders
             </p>
             {errors.description && (
               <p className="mt-2 doodle-error">
