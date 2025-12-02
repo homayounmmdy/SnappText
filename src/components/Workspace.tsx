@@ -2,19 +2,20 @@ import { Copy } from "lucide-react";
 import { useContext } from "react";
 import toast from "react-hot-toast";
 import { AppContext, copyToClipboard } from "../Utility/util";
+import Badge from "./Badge";
 
 const Workspace: React.FC = () => {
   const context = useContext(AppContext);
-  
+
   if (!context) return null;
   const { state, dispatch } = context;
-  
+
   const handleCopyWorkspace = async () => {
     if (!state.workspaceText.trim()) {
       toast.error("Nothing to copy");
       return;
     }
-    
+
     const success = await copyToClipboard(state.workspaceText);
     if (success) {
       toast.success("Copied to clipboard!");
@@ -22,19 +23,19 @@ const Workspace: React.FC = () => {
       toast.error("Failed to copy");
     }
   };
-  
+
   const handleClearWorkspace = () => {
     dispatch({ type: "SET_WORKSPACE_TEXT", text: "" });
     toast.success("Workspace cleared");
   };
-  
+
   return (
     <>
       <section className="bg-white rounded-3xl shadow-lg border-4 border-black relative overflow-hidden">
         {/* Doodle decorative elements */}
         <div className="absolute top-0 right-0 w-32 h-32 bg-yellow-300 rounded-full -translate-y-16 translate-x-16 opacity-50"></div>
         <div className="absolute bottom-0 left-0 w-24 h-24 bg-blue-300 rounded-full translate-y-12 -translate-x-12 opacity-50"></div>
-        
+
         <div className="p-4 sm:p-6 relative z-10">
           <div className="flex gap-1 justify-between items-center mb-4">
             <div>
@@ -56,7 +57,7 @@ const Workspace: React.FC = () => {
                   Clear
                 </button>
               )}
-              
+
               <button
                 onClick={handleCopyWorkspace}
                 disabled={!state.workspaceText.trim()}
@@ -67,7 +68,7 @@ const Workspace: React.FC = () => {
               </button>
             </div>
           </div>
-          
+
           <div className="relative">
             <textarea
               value={state.workspaceText}
@@ -80,14 +81,14 @@ const Workspace: React.FC = () => {
             {/* Decorative corner accent */}
             <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-pink-400 rounded-full border-3 border-black"></div>
           </div>
-          
+
           <div className="flex justify-between items-center mt-4 text-sm text-gray-700 font-bold">
-            <span className="bg-yellow-200 px-3 py-1 rounded-full border-2 border-black">
+            <Badge color="yellow">
               {state.workspaceText.length} characters
-            </span>
-            <span className="bg-blue-200 px-3 py-1 rounded-full border-2 border-black">
+            </Badge>
+            <Badge color="blue">
               {state.workspaceText.split("\n").length} lines
-            </span>
+            </Badge>
           </div>
         </div>
       </section>

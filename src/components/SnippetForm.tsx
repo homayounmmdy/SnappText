@@ -4,6 +4,7 @@ import { useContext, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import z from "zod";
 import { AppContext } from "../Utility/util";
+import Badge from "./Badge";
 
 const formSchema = z.object({
   title: z.string().min(1, "Title is required").max(255),
@@ -272,7 +273,7 @@ const SnippetForm = () => {
               placeholder="Enter snippet content. Use {{placeholder}} for variables."
             />
             <p className="doodle-hint mt-2">
-              Use <code className="doodle-code">{"{{variable}}"}</code> syntax for placeholders
+              Use <Badge color="yellow">{"{{variable}}"}</Badge> syntax for placeholders
             </p>
             {errors.description && (
               <p className="mt-2 doodle-error">

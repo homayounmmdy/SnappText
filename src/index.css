@@ -1,1 +1,15 @@
 @import "tailwindcss";
+
+@layer utilities {
+    .badge {
+        @apply px-3 py-1 rounded-full border-2 border-black
+    }
+
+    .badge-blue {
+        @apply bg-blue-200
+    }
+
+    .badge-yellow {
+        @apply bg-yellow-200
+    }
+}
