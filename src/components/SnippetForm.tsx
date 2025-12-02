@@ -60,76 +60,167 @@ const SnippetForm = () => {
   };
 
   return (
-    <div className="fixed inset-0 filter backdrop-blur-md bg-white/30 bg-opacity-50 flex items-center justify-center p-4 z-40">
-      <div className="bg-white rounded-lg shadow-xl max-w-md w-full">
-        <div className="p-6">
-          <div className="flex justify-between items-center mb-4">
-            <h3 className="text-lg font-semibold text-gray-800">
-              {state.editingSnippet ? "Edit Snippet" : "Add New Snippet"}
-            </h3>
-            <button
-              onClick={() => dispatch({ type: "CLOSE_FORM" })}
-              className="text-gray-400 hover:text-gray-600 cursor-pointer"
-            >
-              <X className="w-5 h-5" />
-            </button>
+    <div className="fixed inset-0 bg-gradient-to-br from-yellow-50 via-orange-50 to-pink-50 bg-opacity-95 flex items-center justify-center p-4 z-40">
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Comic+Neue:wght@400;700&display=swap');
+        
+        .doodle-container {
+          font-family: 'Comic Neue', cursive;
+          position: relative;
+        }
+        
+        .doodle-title {
+          font-family: 'Caveat', cursive;
+        }
+        
+        .doodle-box {
+          border: 3px solid #2D3748;
+          border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+          box-shadow: 
+            8px 8px 0px rgba(255, 107, 107, 0.3),
+            -2px -2px 0px rgba(66, 153, 225, 0.2);
+          animation: wiggle 0.3s ease-in-out;
+        }
+        
+        @keyframes wiggle {
+          0% { transform: rotate(0deg) scale(0.95); }
+          50% { transform: rotate(1deg) scale(1.02); }
+          100% { transform: rotate(0deg) scale(1); }
+        }
+        
+        .doodle-input {
+          border: 3px solid #2D3748;
+          border-radius: 15px 50px 30px 40px / 40px 30px 50px 20px;
+          transition: all 0.2s ease;
+          background: white;
+          box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.1);
+        }
+        
+        .doodle-input:focus {
+          outline: none;
+          border-color: #FF6B6B;
+          transform: rotate(-1deg);
+          box-shadow: 4px 4px 0px rgba(255, 107, 107, 0.3);
+        }
+        
+        .doodle-button {
+          border: 3px solid #2D3748;
+          border-radius: 20px 40px 30px 50px / 50px 20px 40px 30px;
+          transition: all 0.2s ease;
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          position: relative;
+          box-shadow: 4px 4px 0px #2D3748;
+        }
+        
+        .doodle-button:hover {
+          transform: translate(2px, 2px);
+          box-shadow: 2px 2px 0px #2D3748;
+        }
+        
+        .doodle-button:active {
+          transform: translate(4px, 4px);
+          box-shadow: 0px 0px 0px #2D3748;
+        }
+        
+        .doodle-btn-primary {
+          background: linear-gradient(135deg, #FF6B6B 0%, #FF8E53 100%);
+          color: white;
+        }
+        
+        .doodle-btn-secondary {
+          background: white;
+          color: #2D3748;
+        }
+        
+        .squiggle {
+          position: absolute;
+          pointer-events: none;
+        }
+        
+        .star-doodle {
+          animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+          0%, 100% { transform: translateY(0px) rotate(0deg); }
+          50% { transform: translateY(-10px) rotate(5deg); }
+        }
+      `}</style>
+      
+      <div className="doodle-container bg-white doodle-box max-w-md w-full p-8 relative">
+        {/* Decorative doodles */}
+        <div className="squiggle absolute -top-6 -left-6 text-4xl star-doodle">⭐</div>
+        <div className="squiggle absolute -top-4 -right-4 text-3xl star-doodle" style={{animationDelay: '0.5s'}}>✨</div>
+        <div className="squiggle absolute -bottom-6 -right-6 text-4xl star-doodle" style={{animationDelay: '1s'}}>💫</div>
+        
+        <div className="flex justify-between items-center mb-6">
+          <h3 className="doodle-title text-3xl font-bold text-gray-800">
+            {state.editingSnippet ? "✏ Edit Snippet" : "✨ New Snippet"}
+          </h3>
+          <button
+            onClick={() => dispatch({ type: "CLOSE_FORM" })}
+            className="text-gray-600 hover:text-red-500 cursor-pointer transition-all hover:rotate-90 duration-300"
+          >
+            <X className="w-7 h-7" strokeWidth={3} />
+          </button>
+        </div>
+
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+          <div>
+            <label className="block text-lg font-bold text-gray-700 mb-2 doodle-title">
+              📝 Title
+            </label>
+            <input
+              {...register("title")}
+              type="text"
+              className="doodle-input w-full px-4 py-3 text-lg"
+              placeholder="Enter snippet title"
+            />
+            {errors.title && (
+              <p className="mt-2 text-sm text-red-600 font-bold flex items-center gap-1">
+                ⚠ {errors.title.message}
+              </p>
+            )}
           </div>
 
-          <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                Title
-              </label>
-              <input
-                {...register("title")}
-                type="text"
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
-                placeholder="Enter snippet title"
-              />
-              {errors.title && (
-                <p className="mt-1 text-sm text-red-600">
-                  {errors.title.message}
-                </p>
-              )}
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                Description
-              </label>
-              <textarea
-                {...register("description")}
-                rows={4}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent resize-none"
-                placeholder="Enter snippet content. Use {{placeholder}} for variables."
-              />
-              <p className="text-xs text-gray-500 mt-1">
-                Use <code>{"{{variable}}"}</code> syntax for placeholders
+          <div>
+            <label className="block text-lg font-bold text-gray-700 mb-2 doodle-title">
+              💭 Description
+            </label>
+            <textarea
+              {...register("description")}
+              rows={4}
+              className="doodle-input w-full px-4 py-3 resize-none text-lg"
+              placeholder="Enter snippet content. Use {{placeholder}} for variables."
+            />
+            <p className="text-sm text-gray-600 mt-2 font-semibold">
+              💡 Use <code className="bg-yellow-100 px-2 py-1 rounded-lg border-2 border-gray-800">{"{{variable}}"}</code> syntax for placeholders
+            </p>
+            {errors.description && (
+              <p className="mt-2 text-sm text-red-600 font-bold flex items-center gap-1">
+                ⚠ {errors.description.message}
               </p>
-              {errors.description && (
-                <p className="mt-1 text-sm text-red-600">
-                  {errors.description.message}
-                </p>
-              )}
-            </div>
+            )}
+          </div>
 
-            <div className="flex gap-3 mt-6">
-              <button
-                type="button"
-                onClick={() => dispatch({ type: "CLOSE_FORM" })}
-                className="flex-1 px-4 py-2 border cursor-pointer border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50"
-              >
-                Cancel
-              </button>
-              <button
-                type="submit"
-                className="flex-1 px-4 py-2 cursor-pointer bg-red-500 text-white rounded-lg hover:bg-red-600"
-              >
-                {state.editingSnippet ? "Update" : "Add"} Snippet
-              </button>
-            </div>
-          </form>
-        </div>
+          <div className="flex gap-4 mt-8">
+            <button
+              type="button"
+              onClick={() => dispatch({ type: "CLOSE_FORM" })}
+              className="doodle-button doodle-btn-secondary flex-1 px-6 py-3 cursor-pointer text-lg"
+            >
+              Cancel
+            </button>
+            <button
+              type="submit"
+              className="doodle-button doodle-btn-primary flex-1 px-6 py-3 cursor-pointer text-lg"
+            >
+              {state.editingSnippet ? "Update" : "Add"} ✓
+            </button>
+          </div>
+        </form>
       </div>
     </div>
   );
