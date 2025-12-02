@@ -1,9 +1,6 @@
-interface Props {
-  children: React.ReactNode;
-  color: "blue" | "yellow";
-  className?: string;
-}
-const Badge = ({ children, color, className = "" }: Props) => {
+import type { BadgeType } from "../types/FormFiledType";
+
+const Badge = ({ children, color, className = "" }: BadgeType) => {
   return (
     <span className={`badge badge-${color} ${className}`}>{children}</span>
   );

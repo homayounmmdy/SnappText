@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import z from "zod";
 import { AppContext } from "../Utility/util";
 import Badge from "./Badge";
+import Input from "./Input";
 
 const formSchema = z.object({
   title: z.string().min(1, "Title is required").max(255),
@@ -80,20 +81,7 @@ const SnippetForm = () => {
             8px 8px 0px rgba(255, 107, 107, 0.3);
         }
         
-        .doodle-input {
-          border: 2.5px solid #000;
-          border-radius: 12px;
-          background: #fff;
-          transition: all 0.2s ease;
-          font-family: 'Comic Sans MS', cursive, sans-serif;
-        }
-        
-        .doodle-input:focus {
-          outline: none;
-          transform: translateY(-2px);
-          box-shadow: 3px 3px 0px #FF6B6B;
-          border-color: #FF6B6B;
-        }
+
         
         .doodle-textarea {
           border: 2.5px solid #000;
@@ -220,15 +208,6 @@ const SnippetForm = () => {
           color: #333;
           font-weight: 600;
         }
-        
-        .doodle-code {
-          font-family: 'Courier New', monospace;
-          background: #FFE66D;
-          border: 2px solid #000;
-          border-radius: 6px;
-          padding: 2px 6px;
-          font-weight: bold;
-        }
       `}</style>
       
       <div className="doodle-form doodle-border bg-white max-w-md w-full p-6">
@@ -249,10 +228,10 @@ const SnippetForm = () => {
             <label className="block doodle-label mb-2">
               Title
             </label>
-            <input
+            <Input
               {...register("title")}
               type="text"
-              className="doodle-input w-full px-4 py-3"
+              className="w-full"
               placeholder="Enter snippet title"
             />
             {errors.title && (

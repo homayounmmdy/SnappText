@@ -12,4 +12,8 @@
     .badge-yellow {
         @apply bg-yellow-200
     }
+
+    .input {
+        @apply border-2 border-black rounded-2xl bg-white transition-all duration-200 ease-in-out px-4 py-3 focus:outline-none focus:-translate-y-0.5 focus:shadow-[3px_3px_0_#FF6B6B] focus:border-[#FF6B6B]
+    }
 }

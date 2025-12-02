@@ -10,6 +10,7 @@ import {
   copyToClipboard,
   replacePlaceholders,
 } from "../Utility/util";
+import Input from "./Input";
 
 const PlaceholderModal: React.FC = () => {
   const context = useContext(AppContext);
@@ -67,21 +68,6 @@ const PlaceholderModal: React.FC = () => {
           box-shadow: 
             4px 4px 0px #000,
             8px 8px 0px rgba(255, 107, 107, 0.3);
-        }
-        
-        .doodle-input {
-          border: 2.5px solid #000;
-          border-radius: 12px;
-          background: #fff;
-          transition: all 0.2s ease;
-          font-family: 'Comic Sans MS', cursive, sans-serif;
-        }
-        
-        .doodle-input:focus {
-          outline: none;
-          transform: translateY(-2px);
-          box-shadow: 3px 3px 0px #FF6B6B;
-          border-color: #FF6B6B;
         }
         
         .doodle-button {
@@ -209,10 +195,10 @@ const PlaceholderModal: React.FC = () => {
                   <label className="block doodle-label mb-2">
                     {placeholder}
                   </label>
-                  <input
+                  <Input
                     type="text"
                     {...register(placeholder)}
-                    className="w-full px-4 py-3 doodle-input"
+                    className="w-full"
                     placeholder={`Enter ${placeholder}`}
                   />
                   {errors[placeholder] && (
