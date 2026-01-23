@@ -132,13 +132,11 @@ const SnippetForm = () => {
         }
         
         .doodle-button-secondary {
-          background: #FFF;
           color: #000;
           box-shadow: 3px 3px 0px #000;
         }
         
         .doodle-button-secondary:hover {
-          background: #F0F0F0;
           box-shadow: 5px 5px 0px #000;
         }
         
@@ -166,7 +164,6 @@ const SnippetForm = () => {
         .doodle-close {
           border: 2.5px solid #000;
           border-radius: 50%;
-          background: #FFF;
           width: 32px;
           height: 32px;
           display: flex;
@@ -177,7 +174,6 @@ const SnippetForm = () => {
         }
         
         .doodle-close:hover {
-          background: #FFE66D;
           transform: rotate(90deg);
           box-shadow: 3px 3px 0px #000;
         }
@@ -215,6 +211,7 @@ const SnippetForm = () => {
             {state.editingSnippet ? "Edit Snippet" : "New Snippet"}
           </h3>
           <Button
+              variant='danger'
             onClick={() => dispatch({ type: "CLOSE_FORM" })}
             className="doodle-close"
           >
@@ -264,15 +261,16 @@ const SnippetForm = () => {
             <Button
               type="button"
               variant="danger"
+              outline
               onClick={() => dispatch({ type: "CLOSE_FORM" })}
-              className="flex-1 px-4 py-3 cursor-pointer doodle-button doodle-button-secondary"
+              className="flex-1 px-4 py-3  doodle-button doodle-button-secondary"
             >
               Cancel
             </Button>
             <Button
               type="submit"
               variant="primary"
-              className="flex-1 px-4 py-3 cursor-pointer doodle-button doodle-button-primary"
+              className="flex-1 px-4 py-3  doodle-button doodle-button-primary"
             >
               {state.editingSnippet ? "Update" : "Add"}
             </Button>

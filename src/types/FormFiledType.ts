@@ -12,4 +12,5 @@ type ButtonVariant = "primary" | "danger" | "info" | "warning" | "success";
 
 export type ButtonType = {
   variant?: ButtonVariant;
+  outline? : boolean;
 } & React.ButtonHTMLAttributes<HTMLButtonElement>;

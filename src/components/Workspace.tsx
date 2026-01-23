@@ -52,8 +52,9 @@ const Workspace: React.FC = () => {
             <div className="flex justify-center gap-2">
               {state.workspaceText.trim() && (
                 <Button
+                    variant="danger"
                   onClick={handleClearWorkspace}
-                  className="p-1.5 sm:px-4 sm:py-2 text-gray-800 cursor-pointer bg-white border-3 border-black rounded-full hover:bg-red-100 hover:shadow-lg transform hover:-translate-y-0.5 transition-all text-sm font-bold"
+                  className="p-1.5 sm:px-4 sm:py-2 text-gray-800  bg-white border-3 border-black rounded-full hover:bg-red-100 hover:shadow-lg transform hover:-translate-y-0.5 transition-all text-sm font-bold"
                 >
                   Clear
                 </Button>
@@ -62,7 +63,8 @@ const Workspace: React.FC = () => {
               <Button
                 onClick={handleCopyWorkspace}
                 disabled={!state.workspaceText.trim()}
-                className="p-1.5 sm:px-4 sm:py-2 bg-gradient-to-r from-pink-400 to-purple-500 cursor-pointer hover:from-pink-500 hover:to-purple-600 disabled:from-gray-300 disabled:to-gray-400 disabled:cursor-not-allowed text-white rounded-full border-3 border-black flex items-center gap-2 transition-all font-bold shadow-md hover:shadow-xl transform hover:-translate-y-0.5"
+                variant="success"
+                className="p-1.5 sm:px-4 sm:py-2  disabled:from-gray-300 disabled:to-gray-400 disabled:cursor-not-allowed text-white rounded-full border-3 border-black flex items-center gap-2 transition-all font-bold shadow-md hover:shadow-xl transform hover:-translate-y-0.5"
               >
                 <Copy className="w-4 h-4" />
                 Copy

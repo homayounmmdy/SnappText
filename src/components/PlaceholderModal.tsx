@@ -91,13 +91,11 @@ const PlaceholderModal: React.FC = () => {
         }
         
         .doodle-button-primary {
-          background: #FF6B6B;
           color: white;
           box-shadow: 3px 3px 0px #000;
         }
         
         .doodle-button-primary:hover {
-          background: #FF5252;
           box-shadow: 5px 5px 0px #000;
         }
         
@@ -106,13 +104,11 @@ const PlaceholderModal: React.FC = () => {
         }
         
         .doodle-button-secondary {
-          background: #FFF;
           color: #000;
           box-shadow: 3px 3px 0px #000;
         }
         
         .doodle-button-secondary:hover {
-          background: #F0F0F0;
           box-shadow: 5px 5px 0px #000;
         }
         
@@ -214,15 +210,16 @@ const PlaceholderModal: React.FC = () => {
                 <Button
                   type="button"
                   variant='danger'
+                  outline
                   onClick={() => dispatch({ type: "CLOSE_MODAL" })}
-                  className="flex-1 px-4 py-3 cursor-pointer doodle-button doodle-button-secondary"
+                  className="flex-1 px-4 py-3  doodle-button doodle-button-secondary"
                 >
                   Cancel
                 </Button>
                 <Button
                   type="submit"
                   variant="primary"
-                  className="flex-1 px-4 py-3 cursor-pointer doodle-button doodle-button-primary flex items-center justify-center gap-2"
+                  className="flex-1 px-4 py-3  doodle-button doodle-button-primary flex items-center justify-center gap-2"
                 >
                   <Copy className="w-4 h-4" />
                   Copy

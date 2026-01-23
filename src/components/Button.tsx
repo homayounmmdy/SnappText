@@ -8,16 +8,17 @@ import type {ButtonType} from "../types/FormFiledType.ts";
  * class along with a color variant class (e.g., `btn-primary`).
  *
  * @param {React.ReactNode} children - The content to render inside the button (e.g., text, icons).
+ * @param outline - Outline of button as default it's false;
  * @param className - Default button className
  * @param variant - The predefined badge style class.
  *   Must be one of the supported variants: `'badge-primary'` `'btn-danger'` `'btn-info'` `'btn-warning'` `'btn-success'`.
  * @param rest - All the default things from button (e.g , className , id , etc ...).
  */
 
-const Button = ({children,className,variant, ...rest} : ButtonType) => {
+const Button = ({children, outline = false, className, variant, ...rest}: ButtonType) => {
     return (
         <button
-            className={`btn ${className} btn-${variant}`}
+            className={`btn ${className} btn-${variant} ${outline ? 'btn-outline' : ''}`}
             {...rest}>
             {children}
         </button>

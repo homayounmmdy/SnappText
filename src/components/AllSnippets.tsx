@@ -31,7 +31,7 @@ const AllSnippets = ({ state, dispatch }: Props) => {
 
           <Button
             onClick={() => dispatch({ type: "OPEN_FORM" })}
-            className="bg-red-500 cursor-pointer text-white px-6 py-2 rounded-lg hover:bg-red-600 transition-colors"
+            className="px-6 py-2  hover:bg-red-600 transition-colors"
           >
             Add Your Snippet
           </Button>

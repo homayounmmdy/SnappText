@@ -126,14 +126,12 @@ const SnippetCard: React.FC<Props> = ({ snippet }: Props) => {
         }
         
         .doodle-copy-btn {
-          background: #4ECDC4;
           border: 3px solid #2D2D2D;
           border-radius: 15px;
           font-family: 'Cabin Sketch', cursive;
           font-weight: 700;
           font-size: 1rem;
           color: #2D2D2D;
-          cursor: pointer;
           transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
           box-shadow: 4px 4px 0px #2D2D2D;
           display: flex;
@@ -144,7 +142,6 @@ const SnippetCard: React.FC<Props> = ({ snippet }: Props) => {
         }
         
         .doodle-copy-btn:hover {
-          background: #45B7AF;
           transform: translateY(-2px);
           box-shadow: 5px 5px 0px #2D2D2D;
         }
@@ -192,7 +189,8 @@ const SnippetCard: React.FC<Props> = ({ snippet }: Props) => {
           
           <Button
             onClick={handleCopy}
-            variant='info'
+            variant='success'
+            outline
             className="doodle-copy-btn"
           >
             <Copy className="w-4 h-4" />
