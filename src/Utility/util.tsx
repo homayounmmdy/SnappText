@@ -1,5 +1,6 @@
 import { createContext } from "react";
 import type { ActionType, AppStateType, PlaceholderValueType } from "../types";
+import {LOCAL_STORAGE_KEY} from "../config/constants.ts";
 
 export const copyToClipboard = async (text: string): Promise<boolean> => {
   try {
@@ -33,7 +34,7 @@ export const replacePlaceholders = (
 
 export const getInitialState = () => {
   try {
-    const savedData = localStorage.getItem("snapptext-data");
+    const savedData = localStorage.getItem(LOCAL_STORAGE_KEY);
     if (savedData) {
       return JSON.parse(savedData);
     }

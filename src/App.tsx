@@ -8,13 +8,14 @@ import PlaceholderModal from "./components/PlaceholderModal";
 import SnippetForm from "./components/SnippetForm";
 import Workspace from "./components/Workspace";
 import { AppContext, getInitialState } from "./Utility/util";
+import {LOCAL_STORAGE_KEY} from "./config/constants.ts";
 
 const App: React.FC = () => {
   const [state, dispatch] = useReducer(appReducer, getInitialState());
 
   useEffect(() => {
     try {
-      localStorage.setItem('snapptext-data', JSON.stringify(state));
+      localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(state));
     } catch (error) {
       console.error('Failed to save to localStorage:', error);
     }
