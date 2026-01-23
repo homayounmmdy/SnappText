@@ -1,10 +1,10 @@
 export type InputType = {} & React.InputHTMLAttributes<HTMLInputElement>;
 
-type badgeColor = "blue" | "yellow";
+type badgeVariant = "primary" | "warning";
 
 export type BadgeType = {
   children: React.ReactNode;
-  color: `badge-${badgeColor}`;
+  variant?: badgeVariant;
   className?: string;
 };
 

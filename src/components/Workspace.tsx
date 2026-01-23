@@ -84,10 +84,10 @@ const Workspace: React.FC = () => {
           </div>
 
           <div className="flex justify-between items-center mt-4 text-sm text-gray-700 font-bold">
-            <Badge color="badge-yellow">
+            <Badge variant="warning">
               {state.workspaceText.length} characters
             </Badge>
-            <Badge color="badge-blue">
+            <Badge>
               {state.workspaceText.split("\n").length} lines
             </Badge>
           </div>
