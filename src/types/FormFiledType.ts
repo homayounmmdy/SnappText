@@ -7,3 +7,7 @@ export type BadgeType = {
   color: `badge-${badgeColor}`;
   className?: string;
 };
+
+export type ButtonType = {
+  variant?: "btn-danger";
+} & React.ButtonHTMLAttributes<HTMLButtonElement>;

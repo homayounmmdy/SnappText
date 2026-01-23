@@ -7,6 +7,7 @@ import {
   extractPlaceholders,
 } from "../Utility/util";
 import type { SnippetType } from "../types";
+import Button from "./Button.tsx";
 
 interface Props {
   snippet: SnippetType;
@@ -132,7 +133,6 @@ const SnippetCard: React.FC<Props> = ({ snippet }: Props) => {
           font-weight: 700;
           font-size: 1rem;
           color: #2D2D2D;
-          padding: 0.75rem 1.5rem;
           cursor: pointer;
           transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
           box-shadow: 4px 4px 0px #2D2D2D;
@@ -175,28 +175,28 @@ const SnippetCard: React.FC<Props> = ({ snippet }: Props) => {
             </div>
             
             <div className="doodle-button-group">
-              <button
+              <Button
                 onClick={() => dispatch({ type: "OPEN_FORM", snippet })}
                 className="doodle-icon-btn"
               >
                 <Edit className="w-4 h-4" />
-              </button>
-              <button
+              </Button>
+              <Button
                 onClick={handleDelete}
                 className="doodle-icon-btn"
               >
                 <Trash2 className="w-4 h-4" />
-              </button>
+              </Button>
             </div>
           </div>
           
-          <button
+          <Button
             onClick={handleCopy}
             className="doodle-copy-btn"
           >
             <Copy className="w-4 h-4" />
             Copy Snippet
-          </button>
+          </Button>
         </div>
       </div>
     </>

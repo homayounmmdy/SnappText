@@ -3,6 +3,7 @@ import React from "react";
 import type { ActionType, AppStateType } from "../types";
 import SearchBar from "./SearchBar";
 import SnippetCard from "./SnippetCard";
+import Button from "./Button.tsx";
 
 interface Props {
   state: AppStateType;
@@ -28,12 +29,12 @@ const AllSnippets = ({ state, dispatch }: Props) => {
             No snippets Found
           </h2>
 
-          <button
+          <Button
             onClick={() => dispatch({ type: "OPEN_FORM" })}
             className="bg-red-500 cursor-pointer text-white px-6 py-2 rounded-lg hover:bg-red-600 transition-colors"
           >
             Add Your Snippet
-          </button>
+          </Button>
         </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

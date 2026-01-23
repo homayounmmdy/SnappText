@@ -11,6 +11,7 @@ import {
   replacePlaceholders,
 } from "../Utility/util";
 import Input from "./Input";
+import Button from "./Button.tsx";
 
 const PlaceholderModal: React.FC = () => {
   const context = useContext(AppContext);
@@ -181,12 +182,12 @@ const PlaceholderModal: React.FC = () => {
               <h3 className="text-xl doodle-title">
                 Fill Placeholders
               </h3>
-              <button
+              <Button
                 onClick={() => dispatch({ type: "CLOSE_MODAL" })}
                 className="doodle-close"
               >
                 <X className="w-4 h-4" />
-              </button>
+              </Button>
             </div>
 
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
@@ -210,20 +211,20 @@ const PlaceholderModal: React.FC = () => {
               ))}
 
               <div className="flex gap-3 mt-8">
-                <button
+                <Button
                   type="button"
                   onClick={() => dispatch({ type: "CLOSE_MODAL" })}
                   className="flex-1 px-4 py-3 cursor-pointer doodle-button doodle-button-secondary"
                 >
                   Cancel
-                </button>
-                <button
+                </Button>
+                <Button
                   type="submit"
                   className="flex-1 px-4 py-3 cursor-pointer doodle-button doodle-button-primary flex items-center justify-center gap-2"
                 >
                   <Copy className="w-4 h-4" />
                   Copy
-                </button>
+                </Button>
               </div>
             </form>
           </div>

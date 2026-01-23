@@ -6,6 +6,7 @@ import z from "zod";
 import { AppContext } from "../Utility/util";
 import Badge from "./Badge";
 import Input from "./Input";
+import Button from "./Button.tsx";
 
 const formSchema = z.object({
   title: z.string().min(1, "Title is required").max(255),
@@ -215,12 +216,12 @@ const SnippetForm = () => {
           <h3 className="text-xl doodle-title">
             {state.editingSnippet ? "Edit Snippet" : "New Snippet"}
           </h3>
-          <button
+          <Button
             onClick={() => dispatch({ type: "CLOSE_FORM" })}
             className="doodle-close"
           >
             <X className="w-4 h-4" />
-          </button>
+          </Button>
         </div>
 
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
@@ -262,19 +263,19 @@ const SnippetForm = () => {
           </div>
 
           <div className="flex gap-3 mt-8">
-            <button
+            <Button
               type="button"
               onClick={() => dispatch({ type: "CLOSE_FORM" })}
               className="flex-1 px-4 py-3 cursor-pointer doodle-button doodle-button-secondary"
             >
               Cancel
-            </button>
-            <button
+            </Button>
+            <Button
               type="submit"
               className="flex-1 px-4 py-3 cursor-pointer doodle-button doodle-button-primary"
             >
               {state.editingSnippet ? "Update" : "Add"}
-            </button>
+            </Button>
           </div>
         </form>
       </div>

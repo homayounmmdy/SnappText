@@ -1,6 +1,7 @@
 import { Plus } from "lucide-react";
 import { useContext } from "react";
 import { AppContext } from "../Utility/util";
+import Button from "./Button.tsx";
 
 const Header = () => {
   const context = useContext(AppContext);
@@ -35,7 +36,7 @@ const Header = () => {
           </h1>
           <p className="text-gray-700 hidden md:block mt-3 font-medium">Quick snippets, instant copy ✨</p>
         </div>
-        <button
+        <Button
           onClick={() => dispatch({ type: "OPEN_FORM" })}
           className="bg-white hover:bg-red-50 text-gray-900 px-4 py-2 cursor-pointer rounded-2xl flex items-center gap-2 transition-all hover:scale-105 hover:rotate-1 font-bold shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] border-3 border-black relative group"
         >
@@ -46,7 +47,7 @@ const Header = () => {
             <circle cx="12" cy="12" r="8" fill="#fbbf24" stroke="#000" strokeWidth="2"/>
             <path d="M 8 12 L 12 8 L 16 12" stroke="#000" strokeWidth="2" fill="none"/>
           </svg>
-        </button>
+        </Button>
       </div>
       
       {/* Wavy bottom border */}
