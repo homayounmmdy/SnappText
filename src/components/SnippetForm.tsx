@@ -119,13 +119,11 @@ const SnippetForm = () => {
         }
         
         .doodle-button-primary {
-          background: #FF6B6B;
           color: white;
           box-shadow: 3px 3px 0px #000;
         }
         
         .doodle-button-primary:hover {
-          background: #FF5252;
           box-shadow: 5px 5px 0px #000;
         }
         
@@ -265,6 +263,7 @@ const SnippetForm = () => {
           <div className="flex gap-3 mt-8">
             <Button
               type="button"
+              variant="danger"
               onClick={() => dispatch({ type: "CLOSE_FORM" })}
               className="flex-1 px-4 py-3 cursor-pointer doodle-button doodle-button-secondary"
             >
@@ -272,6 +271,7 @@ const SnippetForm = () => {
             </Button>
             <Button
               type="submit"
+              variant="primary"
               className="flex-1 px-4 py-3 cursor-pointer doodle-button doodle-button-primary"
             >
               {state.editingSnippet ? "Update" : "Add"}

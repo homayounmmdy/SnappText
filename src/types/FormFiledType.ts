@@ -8,6 +8,8 @@ export type BadgeType = {
   className?: string;
 };
 
+type ButtonVariant = "primary" | "danger" | "info" | "warning" | "success";
+
 export type ButtonType = {
-  variant?: "btn-danger";
+  variant?: ButtonVariant;
 } & React.ButtonHTMLAttributes<HTMLButtonElement>;

@@ -192,6 +192,7 @@ const SnippetCard: React.FC<Props> = ({ snippet }: Props) => {
           
           <Button
             onClick={handleCopy}
+            variant='info'
             className="doodle-copy-btn"
           >
             <Copy className="w-4 h-4" />

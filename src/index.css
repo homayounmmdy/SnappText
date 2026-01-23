@@ -18,10 +18,27 @@
     }
 
     .btn {
-        @apply px-2 py-3
+        @apply px-2 py-3 transition-colors;
+    }
+
+    .btn-primary {
+        @apply !bg-blue-500 text-white hover:!bg-blue-600;
     }
 
     .btn-danger {
-        @apply bg-red-500  text-white hover:bg-red-600 transition-colors
+        @apply !bg-red-500  text-black hover:!bg-red-600 ;
     }
+
+    .btn-info {
+        @apply !bg-cyan-500 text-white hover:!bg-cyan-600;
+    }
+
+    .btn-warning {
+        @apply !bg-yellow-500 text-white hover:!bg-yellow-600 ;
+    }
+
+    .btn-success {
+        @apply !bg-green-500 text-white hover:!bg-green-600;
+    }
+
 }

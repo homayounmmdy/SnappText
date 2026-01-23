@@ -213,6 +213,7 @@ const PlaceholderModal: React.FC = () => {
               <div className="flex gap-3 mt-8">
                 <Button
                   type="button"
+                  variant='danger'
                   onClick={() => dispatch({ type: "CLOSE_MODAL" })}
                   className="flex-1 px-4 py-3 cursor-pointer doodle-button doodle-button-secondary"
                 >
@@ -220,6 +221,7 @@ const PlaceholderModal: React.FC = () => {
                 </Button>
                 <Button
                   type="submit"
+                  variant="primary"
                   className="flex-1 px-4 py-3 cursor-pointer doodle-button doodle-button-primary flex items-center justify-center gap-2"
                 >
                   <Copy className="w-4 h-4" />
