@@ -1,9 +1,8 @@
-import { Copy } from "lucide-react";
 import React from "react";
 import type { ActionType, AppStateType } from "../types";
 import SearchBar from "./SearchBar";
 import SnippetCard from "./SnippetCard";
-import Button from "./Button.tsx";
+import NoSnippet from "./NoSnippet.tsx";
 
 interface Props {
   state: AppStateType;
@@ -21,21 +20,7 @@ const AllSnippets = ({ state, dispatch }: Props) => {
     <>
       <SearchBar />
       {filteredSnippets.length === 0 ? (
-        <div className="text-center py-12">
-          <div className="text-gray-400 mb-4">
-            <Copy className="w-16 h-16 mx-auto" />
-          </div>
-          <h2 className="text-xl font-semibold text-gray-600 mb-2">
-            No snippets Found
-          </h2>
-
-          <Button
-            onClick={() => dispatch({ type: "OPEN_FORM" })}
-            className="px-6 py-2  hover:bg-red-600 transition-colors"
-          >
-            Add Your Snippet
-          </Button>
-        </div>
+        <NoSnippet dispatch={() => dispatch({ type: "OPEN_FORM" }) } />
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredSnippets.map((snippet) => (
