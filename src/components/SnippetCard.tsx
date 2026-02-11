@@ -44,8 +44,6 @@ const SnippetCard: React.FC<Props> = ({ snippet }: Props) => {
   return (
     <>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@400;700&family=Comic+Neue:wght@400;700&display=swap');
-        
         .doodle-card {
           background: #FFF8E7;
           border: 3px solid #2D2D2D;
@@ -75,8 +73,7 @@ const SnippetCard: React.FC<Props> = ({ snippet }: Props) => {
         }
         
         .doodle-title {
-          font-family: 'Cabin Sketch', cursive;
-          font-weight: 700;
+          font-family: 'Cabin Sketch Bold', cursive;
           color: #2D2D2D;
           font-size: 1.25rem;
           margin-bottom: 0.5rem;
