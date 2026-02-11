@@ -80,4 +80,66 @@
         @apply bg-emerald-400 text-white hover:!bg-emerald-500;
     }
 
+    .card {
+        @apply relative overflow-visible bg-[#FFF8E7] border-4 border-[#2D2D2D] rounded-[20px] transition-all duration-300;
+        box-shadow: 6px 6px 0 #2D2D2D;
+        transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+
+    .card::before {
+        content: '';
+        @apply absolute;
+        top: -8px;
+        left: 15px;
+        width: 30px;
+        height: 16px;
+        background: #FFD93D;
+        border: 3px solid #2D2D2D;
+        border-radius: 20px 20px 0 0;
+        box-shadow: 50px 0 0 #FFD93D, 50px 0 0 3px #2D2D2D;
+    }
+
+    .card:hover {
+        @apply translate-y-[-5px] rotate-[-1deg];
+        box-shadow: 8px 8px 0 #2D2D2D;
+    }
+
+    .card-title {
+        @apply mb-2 text-xl text-[#2D2D2D];
+        font-family: 'Cabin Sketch Bold', cursive;
+    }
+
+    .card-text {
+        @apply text-[#4A4A4A] text-sm leading-relaxed;
+        font-family: 'Comic Neue', cursive;
+    }
+
+    .card-icon-btn {
+        @apply bg-[#FFE5E5] border-2 border-[#2D2D2D] rounded-full w-8 h-8 flex items-center justify-center cursor-pointer transition-all duration-200 p-0;
+    }
+
+    .card-icon-btn:hover {
+        @apply bg-[#FF6B6B] rotate-[10deg] scale-110;
+    }
+
+    .card-icon-btn svg {
+        @apply w-4 h-4 text-[#2D2D2D];
+    }
+
+    .card-copy-btn {
+        @apply border-4 border-[#2D2D2D] rounded-xl font-bold text-lg text-[#2D2D2D] transition-all duration-300 flex items-center justify-center gap-2 w-full;
+        font-family: 'Cabin Sketch Bold', cursive;
+        box-shadow: 4px 4px 0 #2D2D2D;
+        transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+
+    .card-copy-btn:hover {
+        @apply translate-y-[-2px];
+        box-shadow: 5px 5px 0 #2D2D2D;
+    }
+
+    .card-copy-btn:active {
+        @apply translate-y-1;
+        box-shadow: 2px 2px 0 #2D2D2D;
+    }
 }

@@ -43,141 +43,28 @@ const SnippetCard: React.FC<Props> = ({ snippet }: Props) => {
 
   return (
     <>
-      <style>{`
-        .doodle-card {
-          background: #FFF8E7;
-          border: 3px solid #2D2D2D;
-          border-radius: 20px;
-          box-shadow: 6px 6px 0px #2D2D2D;
-          transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-          position: relative;
-          overflow: visible;
-        }
-        
-        .doodle-card::before {
-          content: '';
-          position: absolute;
-          top: -8px;
-          left: 15px;
-          width: 30px;
-          height: 16px;
-          background: #FFD93D;
-          border: 3px solid #2D2D2D;
-          border-radius: 20px 20px 0 0;
-          box-shadow: 50px 0 0 #FFD93D, 50px 0 0 3px #2D2D2D;
-        }
-        
-        .doodle-card:hover {
-          transform: translateY(-5px) rotate(-1deg);
-          box-shadow: 8px 8px 0px #2D2D2D;
-        }
-        
-        .doodle-title {
-          font-family: 'Cabin Sketch Bold', cursive;
-          color: #2D2D2D;
-          font-size: 1.25rem;
-          margin-bottom: 0.5rem;
-        }
-        
-        .doodle-text {
-          font-family: 'Comic Neue', cursive;
-          color: #4A4A4A;
-          font-size: 0.95rem;
-          line-height: 1.5;
-        }
-        
-        .doodle-button-group {
-          display: flex;
-          gap: 0.5rem;
-          opacity: 0;
-          transition: opacity 0.3s ease;
-        }
-        
-        .doodle-card:hover .doodle-button-group {
-          opacity: 1;
-        }
-        
-        .doodle-icon-btn {
-          background: #FFE5E5;
-          border: 2px solid #2D2D2D;
-          border-radius: 50%;
-          width: 32px;
-          height: 32px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          cursor: pointer;
-          transition: all 0.2s ease;
-          padding: 0;
-        }
-        
-        .doodle-icon-btn:hover {
-          background: #FF6B6B;
-          transform: rotate(10deg) scale(1.1);
-        }
-        
-        .doodle-icon-btn svg {
-          width: 16px;
-          height: 16px;
-          color: #2D2D2D;
-        }
-        
-        .doodle-copy-btn {
-          border: 3px solid #2D2D2D;
-          border-radius: 15px;
-          font-family: 'Cabin Sketch', cursive;
-          font-weight: 700;
-          font-size: 1rem;
-          color: #2D2D2D;
-          transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-          box-shadow: 4px 4px 0px #2D2D2D;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          gap: 0.5rem;
-          width: 100%;
-        }
-        
-        .doodle-copy-btn:hover {
-          transform: translateY(-2px);
-          box-shadow: 5px 5px 0px #2D2D2D;
-        }
-        
-        .doodle-copy-btn:active {
-          transform: translateY(2px);
-          box-shadow: 2px 2px 0px #2D2D2D;
-        }
-        
-        .line-clamp-3 {
-          display: -webkit-box;
-          -webkit-line-clamp: 3;
-          -webkit-box-orient: vertical;
-          overflow: hidden;
-        }
-      `}</style>
-      
-      <div className="doodle-card">
+      <div className="group card">
         <div className="p-4 flex justify-between h-full flex-col">
           <div className="flex justify-between items-start mb-3">
             <div>
-              <h3 className="doodle-title">
+              <h3 className="card-title">
                 {snippet.title}
               </h3>
-              <p className="doodle-text mb-4 line-clamp-3">
+              <p className="card-text mb-4 line-clamp-3">
                 {snippet.description}
               </p>
             </div>
             
-            <div className="doodle-button-group">
+            <div className="flex gap-2 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
               <Button
                 onClick={() => dispatch({ type: "OPEN_FORM", snippet })}
-                className="doodle-icon-btn"
+                className="card-icon-btn"
               >
                 <Edit className="w-4 h-4" />
               </Button>
               <Button
                 onClick={handleDelete}
-                className="doodle-icon-btn"
+                className="card-icon-btn"
               >
                 <Trash2 className="w-4 h-4" />
               </Button>
@@ -188,7 +75,7 @@ const SnippetCard: React.FC<Props> = ({ snippet }: Props) => {
             onClick={handleCopy}
             variant='success'
             outline
-            className="doodle-copy-btn"
+            className="card-copy-btn"
           >
             <Copy className="w-4 h-4" />
             Copy Snippet
