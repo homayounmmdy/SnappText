@@ -2,7 +2,7 @@ import { Github, Heart } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="bg-purple-300 text-gray-900 p-6 relative overflow-hidden">
+    <footer className="bg-purple-300 text-gray-900 p-6 font-sketch relative overflow-hidden">
       {/* Doodle background */}
       <div className="absolute inset-0 opacity-10">
         <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">

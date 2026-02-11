@@ -8,7 +8,7 @@ const SearchBar = () => {
   const { dispatch, state } = context;
   
   return (
-    <div className="bg-gradient-to-r from-yellow-200 via-pink-200 to-blue-200 relative rounded-3xl shadow-lg border-4 border-black mb-6 overflow-hidden">
+    <div className="bg-gradient-to-r font-comic-bold from-yellow-200 via-pink-200 to-blue-200 relative rounded-3xl shadow-lg border-4 border-black mb-6 overflow-hidden">
 
       <input
         type="text"

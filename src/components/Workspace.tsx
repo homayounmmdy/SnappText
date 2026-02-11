@@ -40,11 +40,11 @@ const Workspace: React.FC = () => {
         <div className="p-4 sm:p-6 relative z-10">
           <div className="flex gap-1 justify-between items-center mb-4">
             <div>
-              <h2 className="sm:text-xl font-bold text-gray-900 relative inline-block">
+              <h2 className="sm:text-2xl font-sketch font-bold text-gray-900 relative inline-block">
                 Workspace
                 <span className="absolute -bottom-1 left-0 w-full h-2 bg-yellow-300 -z-10"></span>
               </h2>
-              <p className="text-gray-700 hidden md:block text-sm mt-2 font-medium">
+              <p className="text-gray-700 font-comic-bold hidden md:block text-sm mt-2 font-medium">
                 Paste or edit your content here. Copied snippets appear
                 automatically.
               </p>
@@ -54,7 +54,7 @@ const Workspace: React.FC = () => {
                 <Button
                     variant="danger"
                   onClick={handleClearWorkspace}
-                  className="p-1.5 sm:px-4 sm:py-2 text-gray-800  bg-white border-3 border-black rounded-full hover:bg-red-100 hover:shadow-lg transform hover:-translate-y-0.5 transition-all text-sm font-bold"
+                  className="p-1.5 sm:px-4 font-sketch sm:py-2 text-gray-800  bg-white border-3 border-black rounded-full hover:bg-red-100 hover:shadow-lg transform hover:-translate-y-0.5 transition-all text-sm font-bold"
                 >
                   Clear
                 </Button>
@@ -64,7 +64,7 @@ const Workspace: React.FC = () => {
                 onClick={handleCopyWorkspace}
                 disabled={!state.workspaceText.trim()}
                 variant="success"
-                className="p-1.5 sm:px-4 sm:py-2  disabled:from-gray-300 disabled:to-gray-400 disabled:cursor-not-allowed text-white rounded-full border-3 border-black flex items-center gap-2 transition-all font-bold shadow-md hover:shadow-xl transform hover:-translate-y-0.5"
+                className="p-1.5 sm:px-4 font-comic-bold sm:py-2  disabled:from-gray-300 disabled:to-gray-400 disabled:cursor-not-allowed text-white rounded-full border-3 border-black flex items-center gap-2 transition-all font-bold shadow-md hover:shadow-xl transform hover:-translate-y-0.5"
               >
                 <Copy className="w-4 h-4" />
                 Copy
@@ -79,13 +79,13 @@ const Workspace: React.FC = () => {
                 dispatch({ type: "SET_WORKSPACE_TEXT", text: e.target.value })
               }
               placeholder="Paste your content here or copy a snippet above to see the result..."
-              className="w-full h-64 px-4 py-3 border-3 border-black rounded-2xl focus:ring-4 focus:ring-yellow-300 focus:border-black resize-y font-mono text-sm leading-relaxed bg-gradient-to-br from-white to-blue-50 shadow-inner"
+              className="w-full font-comic h-64 px-4 py-3 border-3 border-black rounded-2xl focus:ring-4 focus:ring-yellow-300 focus:border-black resize-y text-sm leading-relaxed bg-gradient-to-br from-white to-blue-50 shadow-inner"
             />
             {/* Decorative corner accent */}
             <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-pink-400 rounded-full border-3 border-black"></div>
           </div>
 
-          <div className="flex justify-between items-center mt-4 text-sm text-gray-700 font-bold">
+          <div className="flex justify-between items-center font-comic mt-4 text-sm text-gray-700 font-bold">
             <Badge variant="warning">
               {state.workspaceText.length} characters
             </Badge>

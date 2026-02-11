@@ -1,19 +1,11 @@
 @import "tailwindcss";
 
 @font-face {
-    font-family: 'Cabin Sketch';
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-    src: url('/fonts/Cabin_Sketch_Normal.woff2') format('woff2');
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-@font-face {
-    font-family: 'Cabin Sketch Bold';
+    font-family: "Cabin Sketch";
     font-style: normal;
     font-weight: 700;
     font-display: swap;
-    src: url('/fonts/Cabin_Sketch_Bold.woff2') format('woff2');
+    src: url('/fonts/Cabin_Sketch.woff2') format('woff2');
     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
@@ -33,6 +25,12 @@
     font-display: swap;
     src: url('/fonts/Comic_Neue_Bold.woff2') format('woff2');
     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@theme {
+    --font-sketch: "Cabin Sketch";
+    --font-comic : "Comic Neue";
+    --font-comic-bold : "Comic Neue Bold"
 }
 
 @layer utilities {
@@ -127,8 +125,7 @@
     }
 
     .card-copy-btn {
-        @apply border-4 border-[#2D2D2D] rounded-xl font-bold text-lg text-[#2D2D2D] transition-all duration-300 flex items-center justify-center gap-2 w-full;
-        font-family: 'Cabin Sketch Bold', cursive;
+        @apply border-4 border-[#2D2D2D] font-sketch rounded-xl font-bold text-lg text-[#2D2D2D] transition-all duration-300 flex items-center justify-center gap-2 w-full;
         box-shadow: 4px 4px 0 #2D2D2D;
         transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
     }
