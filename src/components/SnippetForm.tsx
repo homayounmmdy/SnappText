@@ -63,157 +63,16 @@ const SnippetForm = () => {
   };
 
   return (
-    <div className="fixed inset-0 doodle-backdrop flex items-center justify-center p-4 z-40">
-      <style>{`
-        @keyframes doodleFloat {
-          0%, 100% { transform: translateY(0px) rotate(0deg); }
-          50% { transform: translateY(-3px) rotate(1deg); }
-        }
-        
-        .doodle-form {
-          animation: doodleFloat 3s ease-in-out infinite;
-        }
-        
-        .doodle-border {
-          border: 3px solid #000;
-          border-radius: 20px;
-          box-shadow: 
-            4px 4px 0px #000,
-            8px 8px 0px rgba(255, 107, 107, 0.3);
-        }
-        
-
-        
-        .doodle-textarea {
-          border: 2.5px solid #000;
-          border-radius: 12px;
-          background: #fff;
-          transition: all 0.2s ease;
-          font-family: 'Comic Sans MS', cursive, sans-serif;
-        }
-        
-        .doodle-textarea:focus {
-          outline: none;
-          transform: translateY(-2px);
-          box-shadow: 3px 3px 0px #FF6B6B;
-          border-color: #FF6B6B;
-        }
-        
-        .doodle-button {
-          border: 2.5px solid #000;
-          border-radius: 12px;
-          font-weight: bold;
-          transition: all 0.15s ease;
-          position: relative;
-          font-family: 'Comic Sans MS', cursive, sans-serif;
-          text-transform: uppercase;
-          letter-spacing: 0.5px;
-        }
-        
-        .doodle-button:hover {
-          transform: translate(-2px, -2px);
-        }
-        
-        .doodle-button:active {
-          transform: translate(0px, 0px);
-        }
-        
-        .doodle-button-primary {
-          color: white;
-          box-shadow: 3px 3px 0px #000;
-        }
-        
-        .doodle-button-primary:hover {
-          box-shadow: 5px 5px 0px #000;
-        }
-        
-        .doodle-button-primary:active {
-          box-shadow: 2px 2px 0px #000;
-        }
-        
-        .doodle-button-secondary {
-          color: #000;
-          box-shadow: 3px 3px 0px #000;
-        }
-        
-        .doodle-button-secondary:hover {
-          box-shadow: 5px 5px 0px #000;
-        }
-        
-        .doodle-button-secondary:active {
-          box-shadow: 2px 2px 0px #000;
-        }
-        
-        .doodle-label {
-          font-family: 'Comic Sans MS', cursive, sans-serif;
-          font-weight: bold;
-          color: #000;
-          text-transform: uppercase;
-          font-size: 0.85rem;
-          letter-spacing: 0.5px;
-        }
-        
-        .doodle-title {
-          font-family: 'Comic Sans MS', cursive, sans-serif;
-          font-weight: bold;
-          color: #000;
-          text-transform: uppercase;
-          letter-spacing: 1px;
-        }
-        
-        .doodle-close {
-          border: 2.5px solid #000;
-          border-radius: 50%;
-          width: 32px;
-          height: 32px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          transition: all 0.15s ease;
-          box-shadow: 2px 2px 0px #000;
-        }
-        
-        .doodle-close:hover {
-          transform: rotate(90deg);
-          box-shadow: 3px 3px 0px #000;
-        }
-        
-        .doodle-error {
-          font-family: 'Comic Sans MS', cursive, sans-serif;
-          color: #FF6B6B;
-          font-weight: bold;
-          font-size: 0.8rem;
-        }
-        
-        .doodle-backdrop {
-          background: 
-            repeating-linear-gradient(
-              45deg,
-              rgba(255, 230, 109, 0.1),
-              rgba(255, 230, 109, 0.1) 10px,
-              rgba(255, 107, 107, 0.1) 10px,
-              rgba(255, 107, 107, 0.1) 20px
-            );
-          backdrop-filter: blur(8px);
-        }
-        
-        .doodle-hint {
-          font-family: 'Comic Sans MS', cursive, sans-serif;
-          font-size: 0.8rem;
-          color: #333;
-          font-weight: 600;
-        }
-      `}</style>
-      
-      <div className="doodle-form doodle-border bg-white max-w-md w-full p-6">
+    <div className="fixed inset-0 form-backdrop flex items-center justify-center p-4 z-40">
+      <div className="form form-border bg-white max-w-md w-full p-6">
         <div className="flex justify-between items-center mb-6">
-          <h3 className="text-xl doodle-title">
+          <h3 className="text-xl md:text-2xl form-title">
             {state.editingSnippet ? "Edit Snippet" : "New Snippet"}
           </h3>
           <Button
               variant='danger'
             onClick={() => dispatch({ type: "CLOSE_FORM" })}
-            className="doodle-close"
+            className="form-close"
           >
             <X className="w-4 h-4" />
           </Button>
@@ -221,7 +80,7 @@ const SnippetForm = () => {
 
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
           <div>
-            <label className="block doodle-label mb-2">
+            <label className="block form-label mb-2">
               Title
             </label>
             <Input
@@ -231,30 +90,30 @@ const SnippetForm = () => {
               placeholder="Enter snippet title"
             />
             {errors.title && (
-              <p className="mt-2 doodle-error">
+              <p className="mt-2 form-label-error">
                 {errors.title.message}
               </p>
             )}
           </div>
 
           <div>
-            <label className="block doodle-label mb-2">
+            <label className="block form-label mb-2">
               Description
             </label>
             <textarea
               {...register("description")}
               rows={4}
-              className="doodle-textarea w-full px-4 py-3 resize-none"
+              className="form-textarea w-full px-4 py-3 resize-none"
               placeholder="Enter snippet content. Use {{placeholder}} for variables."
             />
-            <p className="doodle-hint mt-2">
-              Use <Badge variant='warning'>{"{{variable}}"}</Badge> syntax for placeholders
-            </p>
             {errors.description && (
-              <p className="mt-2 doodle-error">
+              <p className="mt-2 form-label-error">
                 {errors.description.message}
               </p>
             )}
+            <p className="text-[0.8rem] text-[#333] font-comic-bold mt-2">
+              Use <Badge variant='warning'>{"{{variable}}"}</Badge> syntax for placeholders
+            </p>
           </div>
 
           <div className="flex gap-3 mt-8">
@@ -263,14 +122,14 @@ const SnippetForm = () => {
               variant="danger"
               outline
               onClick={() => dispatch({ type: "CLOSE_FORM" })}
-              className="flex-1 px-4 py-3  doodle-button doodle-button-secondary"
+              className="flex-1 px-4 py-3  form-btn font-sketch form-btn-secondary"
             >
               Cancel
             </Button>
             <Button
               type="submit"
               variant="primary"
-              className="flex-1 px-4 py-3  doodle-button doodle-button-primary"
+              className="flex-1 px-4 py-3 font-comic-bold form-btn form-btn-primary"
             >
               {state.editingSnippet ? "Update" : "Add"}
             </Button>

@@ -29,8 +29,8 @@
 
 @theme {
     --font-sketch: "Cabin Sketch";
-    --font-comic : "Comic Neue";
-    --font-comic-bold : "Comic Neue Bold"
+    --font-comic: "Comic Neue";
+    --font-comic-bold: "Comic Neue Bold"
 }
 
 @layer utilities {
@@ -47,7 +47,7 @@
     }
 
     .input {
-        @apply border-2 border-black rounded-2xl bg-white transition-all duration-200 ease-in-out px-4 py-3 focus:outline-none focus:-translate-y-0.5 focus:shadow-[3px_3px_0_#FF6B6B] focus:border-[#FF6B6B]
+        @apply border-2 font-comic border-black rounded-2xl bg-white transition-all duration-200 ease-in-out px-4 py-3 focus:outline-none focus:-translate-y-0.5 focus:shadow-[3px_3px_0_#FF6B6B] focus:border-[#FF6B6B]
     }
 
     .btn {
@@ -103,13 +103,11 @@
     }
 
     .card-title {
-        @apply mb-2 text-xl text-[#2D2D2D];
-        font-family: 'Cabin Sketch Bold', cursive;
+        @apply mb-2 font-sketch text-xl text-[#2D2D2D];
     }
 
     .card-text {
-        @apply text-[#4A4A4A] text-sm leading-relaxed;
-        font-family: 'Comic Neue', cursive;
+        @apply text-[#4A4A4A] font-comic text-sm leading-relaxed;
     }
 
     .card-icon-btn {
@@ -138,5 +136,103 @@
     .card-copy-btn:active {
         @apply translate-y-1;
         box-shadow: 2px 2px 0 #2D2D2D;
+    }
+
+    @keyframes formFloat {
+        0%, 100% {
+            transform: translateY(0px) rotate(0deg);
+        }
+        50% {
+            transform: translateY(-3px) rotate(1deg);
+        }
+    }
+
+    .form {
+        animation: formFloat 3s ease-in-out infinite;
+    }
+
+    .form-border {
+        @apply border-4 border-black rounded-[20px];
+        box-shadow: 4px 4px 0 #000, 8px 8px 0 rgba(255, 107, 107, 0.3);
+    }
+
+    .form-textarea {
+        @apply border-[2.5px] font-comic border-black rounded-xl bg-white transition-all duration-200;
+    }
+
+    .form-textarea:focus {
+        @apply outline-none translate-y-[-2px] border-[#FF6B6B];
+        box-shadow: 3px 3px 0 #FF6B6B;
+    }
+
+    .form-btn {
+        @apply border-[2.5px]  border-black rounded-xl font-bold transition-all duration-150 relative uppercase tracking-[0.5px];
+    }
+
+    .form-btn:hover {
+        @apply -translate-x-0.5 -translate-y-0.5;
+    }
+
+    .form-btn:active {
+        @apply translate-x-0 translate-y-0;
+    }
+
+    .form-btn-primary {
+        @apply text-white;
+        box-shadow: 3px 3px 0 #000;
+    }
+
+    .form-btn-primary:hover {
+        box-shadow: 5px 5px 0 #000;
+    }
+
+    .form-btn-primary:active {
+        box-shadow: 2px 2px 0 #000;
+    }
+
+    .form-btn-secondary {
+        @apply text-black;
+        box-shadow: 3px 3px 0 #000;
+    }
+
+    .form-btn-secondary:hover {
+        box-shadow: 5px 5px 0 #000;
+    }
+
+    .form-btn-secondary:active {
+        box-shadow: 2px 2px 0 #000;
+    }
+
+    .form-label {
+        @apply font-comic-bold text-black uppercase text-xs tracking-[0.5px];
+    }
+
+    .form-title {
+        @apply font-sketch text-black uppercase tracking-[1px];
+    }
+
+    .form-close {
+        @apply border-[2.5px] border-black rounded-full w-8 h-8 flex items-center justify-center transition-all duration-150;
+        box-shadow: 2px 2px 0 #000;
+    }
+
+    .form-close:hover {
+        @apply rotate-90;
+        box-shadow: 3px 3px 0 #000;
+    }
+
+    .form-label-error {
+        @apply text-[#FF6B6B] font-comic-bold font-bold text-[0.8rem];
+    }
+
+    .form-backdrop {
+        background: repeating-linear-gradient(
+                45deg,
+                rgba(255, 230, 109, 0.1),
+                rgba(255, 230, 109, 0.1) 10px,
+                rgba(255, 107, 107, 0.1) 10px,
+                rgba(255, 107, 107, 0.1) 20px
+        );
+        backdrop-filter: blur(8px);
     }
 }
