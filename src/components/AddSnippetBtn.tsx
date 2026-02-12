@@ -5,6 +5,7 @@ const AddSnippetBtn = ({handleClick}: { handleClick: React.MouseEventHandler<HTM
     return (
         <Button
             onClick={handleClick}
+            id='addSnippetBtn'
             className="bg-white font-comic hover:bg-red-50 text-gray-900 px-4 py-2  rounded-2xl flex items-center gap-2 transition-all hover:scale-105 hover:rotate-1 font-bold shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] border-3 border-black relative group"
         >
             <Plus className="w-4 h-4 group-hover:rotate-90 transition-transform"/>

@@ -33,6 +33,15 @@
     --font-comic-bold: "Comic Neue Bold"
 }
 
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 0 0 4px #FFD93D, 0 0 0 8px rgba(255, 109, 106, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 0 8px #FFD93D, 0 0 0 12px rgba(255, 109, 106, 0.2);
+    }
+}
+
 @layer utilities {
     .badge {
         @apply px-3 py-1 rounded-full border-2 border-black

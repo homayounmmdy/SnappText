@@ -10,6 +10,7 @@ import Workspace from "./components/Workspace";
 import {AppContext, getInitialState} from "./Utility/util";
 import {LOCAL_STORAGE_KEY} from "./config/constants.ts";
 import Joyride from "react-joyride";
+import UserJourney from "./components/UserJourney.tsx";
 
 const App: React.FC = () => {
     const [state, dispatch] = useReducer(appReducer, getInitialState());
@@ -22,32 +23,11 @@ const App: React.FC = () => {
         }
     }, [state]);
 
-    const steps = [
-        {
-            target: 'body',
-            placement: 'center',
-            title: 'Welcome to Snapp Text! 🚀',
-            content: (
-                <div>
-                    <p><strong>Snapp Text</strong> is a fast and minimal snippet manager for reusable text templates
-                        with dynamic placeholders.</p>
-                    <p style={{marginTop: '10px'}}>Let's take a quick tour to show you the key features!</p>
-                </div>
-            ),
-            disableBeacon: true,
-        },
-    ];
-
     return (
         <AppContext.Provider value={{state, dispatch}}>
             <Toaster/>
             <Header/>
-            <Joyride
-                steps={steps}
-                showSkipButton={true}
-                disableOverlayClose={true}
-                spotlightPadding={5}
-            />
+            <UserJourney />
             <div className=" bg-gray-50">
                 <main className="max-w-6xl mx-auto p-6 h-full space-y-5">
                     <AllSnippets state={state} dispatch={dispatch}/>
