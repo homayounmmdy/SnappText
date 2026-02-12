@@ -22,7 +22,7 @@ const AllSnippets = ({ state, dispatch }: Props) => {
       {filteredSnippets.length === 0 ? (
         <NoSnippet dispatch={() => dispatch({ type: "OPEN_FORM" }) } />
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div id="snippets-list" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredSnippets.map((snippet) => (
             <SnippetCard key={snippet.id} snippet={snippet} />
           ))}

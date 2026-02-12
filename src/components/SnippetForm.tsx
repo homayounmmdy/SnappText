@@ -63,7 +63,7 @@ const SnippetForm = () => {
   };
 
   return (
-    <div className="fixed inset-0 form-backdrop flex items-center justify-center p-4 z-40">
+    <div id="#snippet-form" className="fixed inset-0 form-backdrop flex items-center justify-center p-4 z-40">
       <div className="form form-border bg-white max-w-md w-full p-6">
         <div className="flex justify-between items-center mb-6">
           <h3 className="text-xl md:text-2xl form-title">
