@@ -1,4 +1,6 @@
-export const userJourneySteps = [
+import type {Step} from "react-joyride";
+
+export const userJourneySteps: Step[] = [
     // Step 1: Welcome
     {
         target: 'body',
@@ -46,14 +48,14 @@ export const userJourneySteps = [
         target: '#search-snippets',
         title: '🔍 Quick Search',
         content: 'Find any snippet instantly.',
-        placement: 'bottom' as const,
+        placement: 'bottom',
         disableBeacon: true,
     },
 
     // Step 5: Final
     {
         target: 'body',
-        placement: 'center' as const,
+        placement: 'center',
         title: '🎉 You\'re a Pro!',
         content: (
 

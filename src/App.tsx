@@ -9,7 +9,6 @@ import SnippetForm from "./components/SnippetForm";
 import Workspace from "./components/Workspace";
 import {AppContext, getInitialState} from "./Utility/util";
 import {LOCAL_STORAGE_KEY} from "./config/constants.ts";
-import Joyride from "react-joyride";
 import UserJourney from "./components/UserJourney.tsx";
 
 const App: React.FC = () => {
