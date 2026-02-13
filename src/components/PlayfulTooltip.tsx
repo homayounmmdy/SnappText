@@ -37,7 +37,7 @@ const PlayfulTooltip = ({index, step, closeProps, skipProps,backProps, continuou
     const totalSteps = step.totalSteps || 0;
     return (
         <div
-            className="form form-border bg-[#FFF8E7] max-w-sm w-full p-6 relative
+            className="form form-border bg-[#FFF8E7] md:max-w-sm w-full p-3 md:p-6 relative
                  border-4 border-black rounded-[20px] shadow-[8px_8px_0_#2D2D2D]">
             <div className="absolute -top-3 left-6 w-8 h-4 bg-[#FFD93D] border-3 border-black rounded-t-xl
                     shadow-[20px_0_0_#FFD93D,20px_0_0_3px_#000]"></div>
@@ -58,7 +58,7 @@ const PlayfulTooltip = ({index, step, closeProps, skipProps,backProps, continuou
             </span>
                     </div>
                     {title && (
-                        <h3 className="font-sketch text-2xl text-black uppercase tracking-[1px]
+                        <h3 className="font-sketch text-xl whitespace-nowrap md:whitespace-normal md:text-2xl text-black uppercase tracking-[1px]
                          border-b-3 border-black pb-2 inline-block">
                             {title}
                         </h3>

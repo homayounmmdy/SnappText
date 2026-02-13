@@ -60,8 +60,8 @@ export const userJourneySteps: Step[] = [
         content: (
 
             <div className="text-center">
-                <div className="text-4xl mb-4 animate-bounce">✏️ ✨ 🎨</div>
-                <p className="font-comic-bold text-lg mb-2">
+                <div className="text-4xl mb-4 animate-bounce flex justify-center items-center">✏️ <span className="hidden md:block">✨ 🎨</span></div>
+                <p className="font-comic-bold whitespace-nowrap md:whitespace-normal text-lg mb-2">
                     Ready to speed up your typing?
                 </p>
                 <p className="text-sm">
