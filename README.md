@@ -1,6 +1,6 @@
 # ⚡ Snapp Text – Smart Snippet Manager with Dynamic Placeholders 📋
 
-![Uploading Screenshot 2026-02-13 at 14-12-51 Snapp Text.png…]()
+<img width="1856" height="1290" alt="Screenshot 2026-02-13 at 14-12-51 Snapp Text" src="https://github.com/user-attachments/assets/26c22c7d-fd5d-4943-b622-f4e4d1e6ce55" />
 
 
 **A fast and minimal snippet manager for reusable text templates with intelligent variable support!** ✨
