@@ -1,59 +1,85 @@
-# 🔴 Snapp Text
+# ⚡ Snapp Text – Smart Snippet Manager with Dynamic Placeholders 📋
 
-<img width="1920" height="1280" alt="snappText" src="https://github.com/user-attachments/assets/62e71ae9-f078-492f-b6bf-fdbf06bb51b3" />
+![Uploading Screenshot 2026-02-13 at 14-12-51 Snapp Text.png…]()
 
 
-Snapp Text is a fast and minimal snippet manager for reusable text templates with dynamic placeholders.
+**A fast and minimal snippet manager for reusable text templates with intelligent variable support!** ✨
 
-### ✨ Features
+Tired of manually customizing the same templates over and over? Snapp Text lets you store text snippets with dynamic placeholders, fill them on the fly, and copy the personalized result instantly. Perfect for cover letters, outreach messages, email templates, and any repetitive text! ⏱️
 
-- 🚀 *Instant Copy* — One-click copy for any saved snippet.
-- 🧠 *Dynamic Placeholders* — Add variables like {{company}}, and fill them in via a popup before copying.
-- 🧩 *Workspaces* — Every snippet has its own editable workspace where users can view or modify the final copied text.
-- 🗂 *Snippet Search* — Quickly find your saved snippets by title.
-- 💾 *Local Storage Sync* — All your data is saved locally — no account required.
+## ✨ Key Features
 
----
+- 🚀 **Instant Copy** : One-click copy for any saved snippet
+- 🧠 **Dynamic Placeholders** : Add variables like `{{company}}`, `{{name}}`, and fill them via a smart popup before copying
+- 🔍 **Snippet Search** : Quickly find your saved snippets by title
+- 🧩 **Interactive Workspaces** : Every snippet has its own editable workspace to view or modify the final text before copying
+- 💾 **Local Storage Sync** : All data saved in your browser , no account, no backend, complete privacy
+- 🎯 **Smart Popup Flow** : When you click a snippet with placeholders, a form asks for values and generates the personalized text
 
-### 📸 Example Use Case
+## 📸 Example Use Case
 
-You save a snippet titled “Cover Letter” with this content:
+You save a snippet titled **"Cover Letter"** with this content:
 
-Dear {{company}},
-I’m excited to apply for the position at your company...
+```
+Dear {{company}}, I'm excited to apply for the position at your company...
+```
 
-When you click the snippet card:
+**When you click the snippet card:**
 
-1. A popup asks for company  
-2. You fill in “Google”  
-3. The final text is generated  
-4. It’s copied to your clipboard  
-5. You can also review/edit the generated result in the *workspace* area
+1. 📋 A popup asks for `{{company}}` value
+2. ✏️ You fill in "Google"
+3. ⚡ The final text is generated instantly
+4. 📋 It's copied to your clipboard
+5. 👁️ You can also review/edit the generated result in the workspace area
 
----
+## 🛠️ Built With
 
-### 🛠 Built With
+- ⚛️ **React** : UI library
+- ⚡ **Vite** : Lightning-fast build tool
+- 🧑‍💻 **TypeScript** : Type safety
+- 🎨 **Tailwind CSS** : Utility-first styling
+- 🎯 **React Hook Form + Zod** : Form validation
+- 🧭 **React Joyride** : Interactive user onboarding
+- 💾 **Local Storage API** : Data persistence
+- 🎭 **Doodle Design System** : Playful, consistent UI components
 
-- ⚛ [React](https://reactjs.org/)
-- ⚡ [Vite](https://vitejs.dev/)
-- 🎨 [Tailwind CSS](https://tailwindcss.com/)
-- 🧑‍💻 TypeScript
-- 📦 Local Storage for persistence
----
+## 🎯 Perfect For
 
-### 🚀 Getting Started
+- 📧 Email templates & outreach sequences
+- 💼 Cover letters & job applications
+- 💬 Customer support responses
+- 📝 Code snippets with variables
+- 📄 Any text you use regularly with slight variations!
+
+## 🚀 Getting Started
 
 ```bash
+# Clone the repository
 git clone https://github.com/homayounmmdy/SnappText
-cd Snapp Text
+
+# Navigate to project
+cd SnappText
+
+# Install dependencies
 npm install
+
+# Start development server
 npm run dev
 ```
 
+## 🎮 How It Works
+
+1. **Create** a new snippet with placeholders like `{{variable}}`
+2. **Browse** your snippets with instant search
+3. **Click** any snippet – if it has placeholders, a form pops up
+4. **Fill** the values and get the personalized text
+5. **Copy** with one click or edit in the workspace
+6. **All data** stays in your browser , zero setup, zero tracking
+
+## 🙌 Support & Feedback
+
+If you find this helpful, please ⭐ **star the repo** and share your feedback! Contributions and ideas are always welcome.
+
 ---
 
-🙌 Support & Feedback
-
-If you find this helpful, star the repo and share your feedback!
-
-Let me know if you'd like me to generate this in your preferred GitHub repo structure or scaffold the code as well.
+<div align="center">Built with ❤️ for people who write repetitive text</div>
