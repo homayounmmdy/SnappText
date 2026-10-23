@@ -4,7 +4,7 @@ import { Route, Routes } from "react-router-dom";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import { LOCAL_STORAGE_KEY } from "./config/constants";
-import Changelog from "./pages/ChangeLog";
+import ChangelogData from "./pages/ChangeLog";
 import Home from "./pages/Home";
 import appReducer from "./Utility/appReducer";
 import { AppContext, getInitialState } from "./Utility/util";
@@ -43,7 +43,7 @@ const App: React.FC = () => {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/changelog" element={<Changelog />} />
+        <Route path="/changelog" element={<ChangelogData />} />
       </Routes>
       <Footer />
     </AppContext.Provider>
