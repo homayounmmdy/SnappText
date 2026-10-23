@@ -8,7 +8,7 @@ export type BadgeType = {
   className?: string;
 };
 
-type ButtonVariant = "primary" | "danger" | "info" | "warning" | "success";
+type ButtonVariant = "primary" | "danger" | "info" | "warning" | "success" | "disabled";
 
 export type ButtonType = {
   variant?: ButtonVariant;

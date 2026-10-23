@@ -87,6 +87,10 @@
         @apply bg-emerald-400 text-white hover:!bg-emerald-500;
     }
 
+    .btn-disabled {
+        @apply bg-slate-300 text-slate-500 cursor-not-allowed hover:!bg-slate-300;
+    }
+
     .card {
         @apply relative overflow-visible bg-[#FFF8E7] border-4 border-[#2D2D2D] rounded-[20px] transition-all duration-300;
         box-shadow: 6px 6px 0 #2D2D2D;
