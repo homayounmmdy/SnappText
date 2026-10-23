@@ -1,143 +1,150 @@
 type Commit = {
   message: string;
   verb?: "committed" | "authored";
-  when: string; 
+  when: string;
   verified?: boolean;
 };
 
 type Release = {
-  label: string;  
-  note?: string;   
+  label: string;
+  note?: string;
+  updatedAt?: string;
   commits: Commit[];
 };
 
 export const changelogData: Release[] = [
   {
     label: "Oct 23, 2026",
-    note: "Today",
+    note: "Latest",
+    // ← bump this whenever you add a commit to this release
+    updatedAt: "2026-10-23T20:00:00",
     commits: [
-      { message: "create : custom toast", when: "14 minutes ago" },
-      { message: "disable copy button when there is not text in workspace", when: "1 hour ago" },
-      { message: "fix : showing invalid value in title", when: "1 hour ago" },
+      { message: "feat: fill changelog page with data", when: "2 minutes ago" },
+      { message: "docs: remove archive section from README", when: "6 minutes ago" },
+      { message: "feat: create custom toast", when: "14 minutes ago" },
+      { message: "fix: disable copy button when workspace is empty", when: "1 hour ago" },
+      { message: "fix: show invalid value in title", when: "1 hour ago" },
     ],
   },
   {
     label: "Aug 29, 2026",
     commits: [
-      { message: "update: Readme for make project archive", when: "on Aug 29, 2026" },
+      { message: "docs: update README to archive the project", when: "on Aug 29, 2026" },
     ],
   },
   {
     label: "Feb 13, 2026",
     commits: [
-      { message: "optimize : onboarding on mobile", when: "on Feb 13, 2026" },
-      { message: "downgrade react from 19.1.1 to 18.2.0", when: "on Feb 13, 2026" },
-      { message: "fix : production bug", when: "on Feb 13, 2026" },
-      { message: "fix : main image in readme", verb: "authored", when: "on Feb 13, 2026", verified: true },
-      { message: "Merge branch 'master' of https://github.com/homayunmmdy/My-Docs", when: "on Feb 13, 2026", verified: true },
-      { message: "Update README.md", verb: "authored", when: "on Feb 13, 2026", verified: true },
+      { message: "perf: optimize onboarding on mobile", when: "on Feb 13, 2026" },
+      { message: "chore: downgrade React from 19.1.1 to 18.2.0", when: "on Feb 13, 2026" },
+      { message: "fix: production bug", when: "on Feb 13, 2026" },
+      { message: "docs: fix main image in README", verb: "authored", when: "on Feb 13, 2026", verified: true },
+      { message: "merge: pull origin/master", when: "on Feb 13, 2026", verified: true },
+      { message: "docs: update README.md", verb: "authored", when: "on Feb 13, 2026", verified: true },
     ],
   },
   {
     label: "Feb 12, 2026",
     commits: [
-      { message: "Finish : user Journey", when: "on Feb 12, 2026" },
-      { message: "update : User Journey design", when: "on Feb 12, 2026" },
-      { message: "implement : the first step of the user joinery", when: "on Feb 12, 2026" },
-      { message: "refactor : Add Snippet Button", when: "on Feb 12, 2026" },
+      { message: "feat: finish user journey", when: "on Feb 12, 2026" },
+      { message: "style: update user journey design", when: "on Feb 12, 2026" },
+      { message: "feat: implement first step of user journey", when: "on Feb 12, 2026" },
+      { message: "refactor: add snippet button", when: "on Feb 12, 2026" },
     ],
   },
   {
     label: "Feb 11, 2026",
     commits: [
-      { message: "refactor : PlaceholderModal styles", when: "on Feb 11, 2026" },
-      { message: "refactor : SnippetForm styles", when: "on Feb 11, 2026" },
-      { message: "update : fonts in some places", when: "on Feb 11, 2026" },
-      { message: "refactor : SnippetCard Styles", when: "on Feb 11, 2026" },
-      { message: "load fonts locally", when: "on Feb 11, 2026" },
+      { message: "style: refactor PlaceholderModal styles", when: "on Feb 11, 2026" },
+      { message: "style: refactor SnippetForm styles", when: "on Feb 11, 2026" },
+      { message: "style: update fonts in some places", when: "on Feb 11, 2026" },
+      { message: "style: refactor SnippetCard styles", when: "on Feb 11, 2026" },
+      { message: "perf: load fonts locally", when: "on Feb 11, 2026" },
     ],
   },
   {
     label: "Jan 30, 2026",
-    commits: [{ message: "refactor : NoSnippet", when: "on Jan 30, 2026" }],
+    commits: [
+      { message: "refactor: extract NoSnippet component", when: "on Jan 30, 2026" },
+    ],
   },
   {
     label: "Jan 26, 2026",
     commits: [
-      { message: "Merge branch 'master' of https://github.com/homayunmmdy/My-Docs", when: "on Jan 26, 2026" },
+      { message: "merge: pull origin/master", when: "on Jan 26, 2026" },
     ],
   },
   {
     label: "Jan 23, 2026",
     commits: [
-      { message: "implement : outline for button", when: "on Jan 23, 2026" },
-      { message: "add : more variant into button", when: "on Jan 23, 2026" },
-      { message: "refactor: badge", when: "on Jan 23, 2026" },
-      { message: "implement: general button", when: "on Jan 23, 2026" },
-      { message: "refactor: storage keys", when: "on Jan 23, 2026" },
+      { message: "feat: add outline variant for button", when: "on Jan 23, 2026" },
+      { message: "feat: add more variants to button", when: "on Jan 23, 2026" },
+      { message: "refactor: extract Badge component", when: "on Jan 23, 2026" },
+      { message: "feat: add general Button component", when: "on Jan 23, 2026" },
+      { message: "refactor: extract storage keys", when: "on Jan 23, 2026" },
     ],
   },
   {
     label: "Dec 18, 2025",
     commits: [
-      { message: "Create LICENSE", verb: "authored", when: "on Dec 18, 2025", verified: true },
-      { message: "Update README.md", verb: "authored", when: "on Dec 18, 2025", verified: true },
+      { message: "chore: create LICENSE", verb: "authored", when: "on Dec 18, 2025", verified: true },
+      { message: "docs: update README.md", verb: "authored", when: "on Dec 18, 2025", verified: true },
     ],
   },
   {
     label: "Dec 3, 2025",
     commits: [
-      { message: "refactor : Badge Colors", when: "on Dec 3, 2025" },
-      { message: "refactor : input and separate into isolate component", when: "on Dec 3, 2025" },
+      { message: "style: refactor badge colors", when: "on Dec 3, 2025" },
+      { message: "refactor: extract Input into isolated component", when: "on Dec 3, 2025" },
     ],
   },
   {
     label: "Dec 2, 2025",
     commits: [
-      { message: "refactor : badge and separate into isolate component", when: "on Dec 2, 2025" },
-      { message: "redesign : forms into Doodle design", when: "on Dec 2, 2025" },
-      { message: "improve : the header adn footer design", when: "on Dec 2, 2025" },
-      { message: "redesign : search bar and workspace into Doodle design", when: "on Dec 2, 2025" },
-      { message: "redesign : Snipped Card into Doodle design", when: "on Dec 2, 2025" },
-      { message: "redesign: Snippet Form with Doodle design", when: "on Dec 2, 2025" },
-      { message: "redesign : header and footer with Doodle design", when: "on Dec 2, 2025" },
-      { message: "update : my github url", when: "on Dec 2, 2025" },
+      { message: "refactor: extract Badge into isolated component", when: "on Dec 2, 2025" },
+      { message: "style: redesign forms with Doodle design", when: "on Dec 2, 2025" },
+      { message: "style: improve header and footer design", when: "on Dec 2, 2025" },
+      { message: "style: redesign search bar and workspace with Doodle design", when: "on Dec 2, 2025" },
+      { message: "style: redesign SnippetCard with Doodle design", when: "on Dec 2, 2025" },
+      { message: "style: redesign SnippetForm with Doodle design", when: "on Dec 2, 2025" },
+      { message: "style: redesign header and footer with Doodle design", when: "on Dec 2, 2025" },
+      { message: "chore: update GitHub URL", when: "on Dec 2, 2025" },
     ],
   },
   {
     label: "Aug 12, 2025",
     commits: [
-      { message: "load : clear if there is a text in workspace", when: "on Aug 12, 2025" },
-      { message: "rename project", when: "on Aug 12, 2025" },
-      { message: "Update SnapText to Snapp Text", verb: "authored", when: "on Aug 12, 2025", verified: true },
-      { message: "Update README.md", verb: "authored", when: "on Aug 12, 2025", verified: true },
-      { message: "fix : card description and searchBar border", when: "on Aug 12, 2025" },
-      { message: "add : form validation for placeholderModel", when: "on Aug 12, 2025" },
-      { message: "add : validation to Create or edit snippet", when: "on Aug 12, 2025" },
-      { message: "add : searchBar", when: "on Aug 12, 2025" },
-      { message: "save and load the data from localstorage", when: "on Aug 12, 2025" },
-      { message: "optimize workspace for mobile", when: "on Aug 12, 2025" },
-      { message: "add : workspace", when: "on Aug 12, 2025" },
-      { message: "optimize header in the mobile", when: "on Aug 12, 2025" },
-      { message: "change background of form to blur", when: "on Aug 12, 2025" },
-      { message: "Add : Footer", when: "on Aug 12, 2025" },
+      { message: "feat: clear workspace on load when text exists", when: "on Aug 12, 2025" },
+      { message: "chore: rename project", when: "on Aug 12, 2025" },
+      { message: "docs: rename SnapText to Snapp Text", verb: "authored", when: "on Aug 12, 2025", verified: true },
+      { message: "docs: update README.md", verb: "authored", when: "on Aug 12, 2025", verified: true },
+      { message: "fix: card description and search bar border", when: "on Aug 12, 2025" },
+      { message: "feat: add form validation for PlaceholderModal", when: "on Aug 12, 2025" },
+      { message: "feat: add validation to create/edit snippet", when: "on Aug 12, 2025" },
+      { message: "feat: add search bar", when: "on Aug 12, 2025" },
+      { message: "feat: persist data to localStorage", when: "on Aug 12, 2025" },
+      { message: "perf: optimize workspace for mobile", when: "on Aug 12, 2025" },
+      { message: "feat: add workspace", when: "on Aug 12, 2025" },
+      { message: "perf: optimize header on mobile", when: "on Aug 12, 2025" },
+      { message: "style: blur form background", when: "on Aug 12, 2025" },
+      { message: "feat: add footer", when: "on Aug 12, 2025" },
     ],
   },
   {
     label: "Aug 11, 2025",
     commits: [
-      { message: "add : cursor pointer to buttons", when: "on Aug 11, 2025" },
-      { message: "add : basic title and favicon", when: "on Aug 11, 2025" },
-      { message: "separate : all components from app", when: "on Aug 11, 2025" },
-      { message: "separate : SnippedCard", when: "on Aug 11, 2025" },
-      { message: "septate : Header From App", when: "on Aug 11, 2025" },
-      { message: "fix : Snippet error", when: "on Aug 11, 2025" },
-      { message: "fix : copy to clipboard for text with variables", when: "on Aug 11, 2025" },
-      { message: "seprate types from App", when: "on Aug 11, 2025" },
-      { message: "handle notification with react-toast", when: "on Aug 11, 2025" },
-      { message: "add : add MVP with AI", when: "on Aug 11, 2025" },
-      { message: "add : tailwind css", when: "on Aug 11, 2025" },
-      { message: "inital project", when: "on Aug 11, 2025" },
+      { message: "style: add cursor pointer to buttons", when: "on Aug 11, 2025" },
+      { message: "feat: add basic title and favicon", when: "on Aug 11, 2025" },
+      { message: "refactor: extract components from App", when: "on Aug 11, 2025" },
+      { message: "refactor: extract SnippetCard", when: "on Aug 11, 2025" },
+      { message: "refactor: extract Header from App", when: "on Aug 11, 2025" },
+      { message: "fix: snippet error", when: "on Aug 11, 2025" },
+      { message: "fix: copy to clipboard for text with variables", when: "on Aug 11, 2025" },
+      { message: "refactor: extract types from App", when: "on Aug 11, 2025" },
+      { message: "feat: handle notifications with react-hot-toast", when: "on Aug 11, 2025" },
+      { message: "feat: add MVP with AI", when: "on Aug 11, 2025" },
+      { message: "chore: add Tailwind CSS", when: "on Aug 11, 2025" },
+      { message: "chore: initial project", when: "on Aug 11, 2025" },
     ],
   },
 ];

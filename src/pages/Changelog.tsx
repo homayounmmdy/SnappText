@@ -1,29 +1,16 @@
 import { Github } from "lucide-react";
 import { changelogData } from "../data/Changelog";
 
-
-const LAST_UPDATED = {
-  date: "Oct 23, 2026",
-  time: "20:00",
-  label: "Oct 23, 2026 · 20:00 (local time)",
-};
-
-/* ── commit type → doodle badge ──────────────────────────────── */
+/* ── commit type → doodle badge (conventional commits) ─────── */
 const CATEGORIES: { test: RegExp; label: string; bg: string }[] = [
+  { test: /^feat\b/i, label: "feat", bg: "bg-emerald-200" },
   { test: /^fix\b/i, label: "fix", bg: "bg-red-200" },
-  { test: /^(add|implement)\b/i, label: "feat", bg: "bg-emerald-200" },
+  { test: /^style\b/i, label: "style", bg: "bg-purple-200" },
   { test: /^refactor\b/i, label: "refactor", bg: "bg-blue-200" },
-  { test: /^redesign\b/i, label: "design", bg: "bg-purple-200" },
-  { test: /^(update|improve)\b/i, label: "update", bg: "bg-yellow-200" },
-  { test: /^optimize\b/i, label: "perf", bg: "bg-cyan-200" },
-  { test: /^(load|save)\b/i, label: "data", bg: "bg-orange-200" },
-  {
-    test: /^(separate|septate|seprate)\b/i,
-    label: "chore",
-    bg: "bg-slate-200",
-  },
+  { test: /^perf\b/i, label: "perf", bg: "bg-cyan-200" },
+  { test: /^docs\b/i, label: "docs", bg: "bg-yellow-200" },
+  { test: /^chore\b/i, label: "chore", bg: "bg-slate-200" },
   { test: /^merge\b/i, label: "merge", bg: "bg-pink-200" },
-  { test: /^(create|rename)\b/i, label: "chore", bg: "bg-slate-200" },
 ];
 const FALLBACK = { label: "misc", bg: "bg-gray-200" };
 
@@ -31,6 +18,31 @@ const categoryOf = (message: string) =>
   CATEGORIES.find((c) => c.test.test(message)) ?? FALLBACK;
 
 const AUTHOR = "homayounmmdy";
+
+/* ── "last updated" → derived from the newest `updatedAt` ──── */
+const formatUpdatedAt = (iso: string) => {
+  const d = new Date(iso);
+  if (Number.isNaN(d.getTime())) return { date: "—", time: "—" };
+
+  const date = d.toLocaleDateString("en-US", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+  });
+  const time = d.toLocaleTimeString("en-US", {
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false,
+  });
+  return { date, time };
+};
+
+const LAST_UPDATED = (() => {
+  // first release that declares updatedAt wins — keep the newest on top
+  const iso = changelogData.find((r) => r.updatedAt)?.updatedAt;
+  // fallback: if you never set updatedAt, use "now" at build/load time
+  return formatUpdatedAt(iso ?? new Date().toISOString());
+})();
 
 /* ── component ──────────────────────────────────────────────── */
 const Changelog = () => {
@@ -59,7 +71,7 @@ const Changelog = () => {
           </svg>
 
           <p className="mt-4 max-w-xl text-sm md:text-base leading-relaxed text-[#4A4A4A]">
-            Every scribble, doodle and bug squashed on the way ,
+            Every scribble, doodle and bug squashed on the way —
             newest at the top, oldest at the bottom.
           </p>
 
