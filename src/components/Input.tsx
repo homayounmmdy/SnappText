@@ -1,8 +1,12 @@
-import React from "react";
+import { forwardRef } from "react";
 import type { InputType } from "../types/FormFiledType";
 
-const Input: React.FC<InputType> = ({ className, ...rest }) => {
-  return <input className={`input ${className}`} id={rest.id} {...rest} />;
-};
+const Input = forwardRef<HTMLInputElement, InputType>(
+  ({ className, ...rest }, ref) => {
+    return <input ref={ref} className={`input ${className ?? ""}`} {...rest} />;
+  },
+);
+
+Input.displayName = "Input";
 
 export default Input;
