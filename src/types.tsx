@@ -30,7 +30,9 @@ export type ActionType =
   | { type: "CLOSE_FORM" }
   | { type: "SET_WORKSPACE_TEXT"; text: string }
   | { type: "LOAD_DATA"; data: AppStateType }
-  | { type: "SET_SEARCH_TERM"; term: string };
+  | { type: "SET_SEARCH_TERM"; term: string }
+  | { type: "SET_SNIPPETS"; snippets: AppStateType["snippets"] }
+  | { type: "CLEAR_SNIPPETS" };
 
 export type AppContextType = React.Context<{
   state: AppStateType;

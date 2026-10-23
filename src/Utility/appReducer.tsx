@@ -56,6 +56,11 @@ const appReducer = (state: AppStateType, action: ActionType): AppStateType => {
         searchTerm: action.term,
       };
       break;
+    case "SET_SNIPPETS":
+      return { ...state, snippets: action.snippets };
+
+    case "CLEAR_SNIPPETS":
+      return { ...state, snippets: [] };
     case "LOAD_DATA":
       newState = action.data;
       break;
