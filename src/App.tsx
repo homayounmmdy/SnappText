@@ -1,14 +1,12 @@
 import React, { useEffect, useReducer } from "react";
 import { Toaster } from "react-hot-toast";
-import appReducer from "./appReducer";
-import AllSnippets from "./components/AllSnippets";
+import { Route, Routes } from "react-router-dom";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
-import PlaceholderModal from "./components/PlaceholderModal";
-import SnippetForm from "./components/SnippetForm";
-import UserJourney from "./components/UserJourney.tsx";
-import Workspace from "./components/Workspace";
-import { LOCAL_STORAGE_KEY } from "./config/constants.ts";
+import { LOCAL_STORAGE_KEY } from "./config/constants";
+import Changelog from "./pages/ChangeLog";
+import Home from "./pages/Home";
+import appReducer from "./Utility/appReducer";
 import { AppContext, getInitialState } from "./Utility/util";
 
 const App: React.FC = () => {
@@ -43,16 +41,10 @@ const App: React.FC = () => {
         }}
       />
       <Header />
-      <UserJourney />
-      <div className=" bg-gray-50">
-        <main className="max-w-6xl mx-auto p-6 h-full space-y-5">
-          <AllSnippets state={state} dispatch={dispatch} />
-          <Workspace />
-        </main>
-        <PlaceholderModal />
-
-        <SnippetForm />
-      </div>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/changelog" element={<Changelog />} />
+      </Routes>
       <Footer />
     </AppContext.Provider>
   );

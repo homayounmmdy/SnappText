@@ -1,5 +1,5 @@
-import type { ActionType, AppStateType } from "./types";
-import {LOCAL_STORAGE_KEY} from "./config/constants.ts";
+import { LOCAL_STORAGE_KEY } from "../config/constants.ts";
+import type { ActionType, AppStateType } from "../types.tsx";
 
 const appReducer = (state: AppStateType, action: ActionType): AppStateType => {
   let newState;
@@ -11,7 +11,7 @@ const appReducer = (state: AppStateType, action: ActionType): AppStateType => {
       newState = {
         ...state,
         snippets: state.snippets.map((s) =>
-          s.id === action.snippet.id ? action.snippet : s
+          s.id === action.snippet.id ? action.snippet : s,
         ),
       };
       break;
