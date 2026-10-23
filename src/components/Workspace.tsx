@@ -1,9 +1,9 @@
 import { Copy } from "lucide-react";
 import { useContext } from "react";
-import toast from "react-hot-toast";
 import { AppContext, copyToClipboard } from "../Utility/util";
 import Badge from "./Badge";
 import Button from "./Button.tsx";
+import { notify } from "./Notify.tsx";
 
 const Workspace: React.FC = () => {
   const context = useContext(AppContext);
@@ -13,21 +13,21 @@ const Workspace: React.FC = () => {
 
   const handleCopyWorkspace = async () => {
     if (!state.workspaceText.trim()) {
-      toast.error("Nothing to copy");
+      notify.error("Nothing to copy");
       return;
     }
 
     const success = await copyToClipboard(state.workspaceText);
     if (success) {
-      toast.success("Copied to clipboard!");
+      notify.success("Copied to clipboard!");
     } else {
-      toast.error("Failed to copy");
+      notify.error("Failed to copy");
     }
   };
 
   const handleClearWorkspace = () => {
     dispatch({ type: "SET_WORKSPACE_TEXT", text: "" });
-    toast.success("Workspace cleared");
+    notify.success("Workspace cleared");
   };
 
   return (

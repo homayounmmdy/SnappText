@@ -42,6 +42,17 @@
     }
 }
 
+@keyframes toastPop {
+    0%   { transform: scale(.92) rotate(-2.5deg); }
+    60%  { transform: scale(1.03) rotate(1deg); }
+    100% { transform: scale(1) rotate(0deg); }
+}
+
+@keyframes toastProgress {
+    from { width: 100%; }
+    to   { width: 0%; }
+}
+
 @layer utilities {
     .badge {
         @apply px-3 py-1 rounded-full border-2 border-black
@@ -247,5 +258,84 @@
                 rgba(255, 107, 107, 0.1) 20px
         );
         backdrop-filter: blur(8px);
+    }
+
+    .toast {
+        @apply relative flex items-start gap-3  pl-3 pr-9 pt-3 pb-5
+               bg-[#FFF8E7] border-4 border-[#2D2D2D] rounded-[20px];
+        box-shadow: 5px 5px 0 #2D2D2D;
+        animation: toastPop .35s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        transition: transform .25s cubic-bezier(0.68, -0.55, 0.265, 1.55),
+                    box-shadow .25s ease;
+    }
+
+    .toast:hover {
+        @apply -translate-y-1 rotate-[-0.5deg];
+        box-shadow: 7px 7px 0 #2D2D2D;
+    }
+
+    .toast-icon {
+        @apply shrink-0 w-9 h-9 flex items-center justify-center
+               rounded-full border-[3px] border-[#2D2D2D];
+        background-color: var(--toast-accent, #FFD93D);
+        box-shadow: 2px 2px 0 #2D2D2D;
+    }
+
+    .toast-icon svg {
+        @apply w-4 h-4 text-[#2D2D2D];
+    }
+
+    .toast-title {
+        @apply font-sketch text-base leading-tight uppercase tracking-[0.5px] text-[#2D2D2D];
+    }
+
+    .toast-message {
+        @apply font-comic text-sm leading-snug text-[#4A4A4A] break-words;
+    }
+
+    .toast-close {
+        @apply absolute top-2 right-2 w-6 h-6 flex items-center justify-center
+               bg-white border-2 border-[#2D2D2D] rounded-full cursor-pointer
+               transition-all duration-150;
+        box-shadow: 2px 2px 0 #2D2D2D;
+    }
+
+    .toast-close:hover {
+        @apply bg-[#FF6B6B] rotate-90;
+        box-shadow: 3px 3px 0 #2D2D2D;
+    }
+
+    .toast-close:active {
+        @apply translate-x-0.5 translate-y-0.5;
+        box-shadow: 1px 1px 0 #2D2D2D;
+    }
+
+    .toast-track {
+        @apply absolute bottom-1.5 left-3 right-3 h-1.5
+               rounded-full overflow-hidden bg-[#2D2D2D]/10;
+    }
+
+    .toast-progress {
+        @apply h-full rounded-full;
+        width: 100%;
+        background-color: var(--toast-accent, #FFD93D);
+        animation-name: toastProgress;
+        animation-timing-function: linear;
+        animation-fill-mode: forwards;
+    }
+
+    /* hover pause is cosmetic only — the real timer is react-hot-toast's */
+    .toast:hover .toast-progress {
+        animation-play-state: paused;
+    }
+
+    .toast-success { --toast-accent: #6BCB77; }
+    .toast-error   { --toast-accent: #FF6B6B; }
+    .toast-warning { --toast-accent: #FFD93D; }
+    .toast-info    { --toast-accent: #5BC0EB; }
+
+    @media (prefers-reduced-motion: reduce) {
+        .toast { animation: none; }
+        .toast:hover { transform: none; }
     }
 }
