@@ -1,4 +1,5 @@
 import { Github } from "lucide-react";
+import PageHeader from "../components/PageHeader";
 import { changelogData } from "../data/Changelog";
 
 /* ── commit type → doodle badge (conventional commits) ─────── */
@@ -49,43 +50,23 @@ const Changelog = () => {
   return (
     <div className="min-h-screen bg-[#FFF8E7] text-[#2D2D2D] font-comic">
       <div className="max-w-6xl mx-auto p-6 h-full space-y-5">
-        {/* ── header ─────────────────────────────────────── */}
-        <header className="mb-10 md:mb-14">
-          <h1 className="mt-4 font-sketch text-5xl md:text-6xl leading-none">
-            Changelog
-          </h1>
-
-          {/* hand-drawn underline */}
-          <svg
-            aria-hidden
-            viewBox="0 0 240 16"
-            className="mt-2 h-4 w-48 md:w-64"
-            fill="none"
-          >
-            <path
-              d="M2 9C30 2 60 16 90 9s60-7 90 0 40 7 58-1"
-              stroke="#FF6B6B"
-              strokeWidth="4"
-              strokeLinecap="round"
-            />
-          </svg>
-
+        <PageHeader title="Changelog">
           <p className="mt-4 max-w-xl text-sm md:text-base leading-relaxed text-[#4A4A4A]">
-            Every scribble, doodle and bug squashed on the way —
-            newest at the top, oldest at the bottom.
+            Every scribble, doodle and bug squashed on the way — newest at the
+            top, oldest at the bottom.
           </p>
 
           <a
             href="https://github.com/homayunmmdy/SnappText"
             target="_blank"
             rel="noreferrer"
-            className="mt-5 inline-flex items-center gap-2 rounded-xl border-2 border-[#2D2D2D] bg-white px-3 py-2 font-comic-bold text-xs uppercase tracking-[0.5px] transition-all duration-150 hover:-translate-y-0.5"
+            className="mb-5 inline-flex items-center gap-2 rounded-xl border-2 border-[#2D2D2D] bg-white px-3 py-2 font-comic-bold text-xs uppercase tracking-[0.5px] transition-all duration-150 hover:-translate-y-0.5"
             style={{ boxShadow: "3px 3px 0 #2D2D2D" }}
           >
             <Github className="h-4 w-4" />
             View source
           </a>
-        </header>
+        </PageHeader>
 
         {/* ── timeline ───────────────────────────────────── */}
         <div className="relative">

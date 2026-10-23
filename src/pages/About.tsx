@@ -9,6 +9,7 @@ import {
   Sparkles,
   Zap,
 } from "lucide-react";
+import PageHeader from "../components/PageHeader";
 
 const AUTHOR = "homayounmmdy";
 const REPO = "https://github.com/homayunmmdy/SnappText";
@@ -85,32 +86,13 @@ const About = () => {
   return (
     <div className="min-h-screen bg-[#FFF8E7] text-[#2D2D2D] font-comic">
       <div className="max-w-6xl mx-auto p-6 h-full space-y-5">
-        {/* ── hero ─────────────────────────────────────────── */}
-        <header>
-          <h1 className="font-sketch text-5xl md:text-6xl leading-none">
-            About SnappText
-          </h1>
-
-          <svg
-            aria-hidden
-            viewBox="0 0 240 16"
-            className="mt-2 h-4 w-48 md:w-64"
-            fill="none"
-          >
-            <path
-              d="M2 9C30 2 60 16 90 9s60-7 90 0 40 7 58-1"
-              stroke="#FF6B6B"
-              strokeWidth="4"
-              strokeLinecap="round"
-            />
-          </svg>
-
-          <p className="mt-4 max-w-xl text-sm md:text-base leading-relaxed text-[#4A4A4A]">
+        <PageHeader title="About SnappText">
+             <p className="mt-4 max-w-xl text-sm md:text-base leading-relaxed text-[#4A4A4A]">
             A tiny snippet manager for the things you write every day — cold
             emails, code blocks, replies you retype one too many times. Paste it
             once, reuse it forever.
           </p>
-        </header>
+        </PageHeader>
 
         {/* ── story card ──────────────────────────────────── */}
         <section className="card p-5 md:p-7">

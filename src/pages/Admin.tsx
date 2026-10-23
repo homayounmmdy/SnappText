@@ -19,6 +19,7 @@ import {
   extractPlaceholders,
 } from "../Utility/util";
 import { notify } from "../components/Notify";
+import PageHeader from "../components/PageHeader";
 
 const STORAGE_LIMIT = 5 * 1024 * 1024;
 
@@ -211,24 +212,7 @@ const Admin = () => {
   return (
     <div className="min-h-screen bg-[#FFF8E7] text-[#2D2D2D] font-comic">
       <div className="max-w-6xl mx-auto p-6 space-y-6">
-        {/* header */}
-        <header>
-          <h1 className="font-sketch text-5xl md:text-6xl leading-none">
-            Admin
-          </h1>
-          <svg
-            aria-hidden
-            viewBox="0 0 240 16"
-            className="mt-2 h-4 w-48 md:w-64"
-            fill="none"
-          >
-            <path
-              d="M2 9C30 2 60 16 90 9s60-7 90 0 40 7 58-1"
-              stroke="#FF6B6B"
-              strokeWidth="4"
-              strokeLinecap="round"
-            />
-          </svg>
+        <PageHeader title="Admin">
           <p className="mt-3 max-w-xl text-sm leading-relaxed text-[#4A4A4A]">
             Everything lives in your browser's{" "}
             <code className="rounded bg-white px-1 py-0.5 font-comic-bold text-[#2D2D2D]">
@@ -237,7 +221,7 @@ const Admin = () => {
             . This dashboard is a peek behind the curtain — no data ever leaves
             your device.
           </p>
-        </header>
+        </PageHeader>
 
         {/* ── storage card ─────────────────────────────────── */}
         <section className="card p-5 md:p-6">

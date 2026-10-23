@@ -1,7 +1,7 @@
+import { Check, Plus, X } from "lucide-react";
 import { useContext, useMemo, useState } from "react";
-import { Check, ChevronLeft, Plus, Sparkles, X } from "lucide-react";
-import { AppContext, extractPlaceholders } from "../Utility/util";
 import { notify } from "../components/notify";
+import PageHeader from "../components/PageHeader";
 import SearchBar from "../components/SearchBar";
 import {
   CATEGORIES,
@@ -9,6 +9,7 @@ import {
   type StoreCategory,
   type StoreSnippet,
 } from "../data/snippetStore";
+import { AppContext, extractPlaceholders } from "../Utility/util";
 
 const STORE_QUERY_PARAM = "store-q";
 
@@ -69,7 +70,9 @@ const SnippetStore = () => {
     window.history.replaceState(
       {},
       "",
-      search ? `${window.location.pathname}?${search}` : window.location.pathname
+      search
+        ? `${window.location.pathname}?${search}`
+        : window.location.pathname,
     );
   };
 
@@ -78,55 +81,12 @@ const SnippetStore = () => {
   return (
     <div className="min-h-screen bg-[#FFF8E7] text-[#2D2D2D] font-comic">
       <div className="max-w-6xl mx-auto p-6">
-        {/* back */}
-        <a
-          href="/"
-          className="inline-flex items-center gap-1 font-comic-bold text-[0.7rem] uppercase tracking-[0.5px] text-[#4A4A4A] transition-colors hover:text-[#2D2D2D]"
-        >
-          <ChevronLeft className="h-4 w-4" />
-          Back to library
-        </a>
-
-        {/* header */}
-        <header className="mt-3 mb-6 md:mb-8">
-          <div className="flex flex-wrap items-center gap-2 mb-2">
-            <span className="badge badge-warning font-comic-bold text-[0.65rem] uppercase tracking-[0.5px]">
-              <Sparkles className="mr-1 inline h-3 w-3" />
-              ready to use
-            </span>
-            <span className="badge badge-primary font-comic-bold text-[0.65rem] uppercase tracking-[0.5px]">
-              {snippetStore.length} snippets
-            </span>
-            {addedCount > 0 && (
-              <span className="badge bg-emerald-200 font-comic-bold text-[0.65rem] uppercase tracking-[0.5px]">
-                {addedCount} added
-              </span>
-            )}
-          </div>
-
-          <h1 className="font-sketch text-5xl md:text-6xl leading-none">
-            Snippet Store
-          </h1>
-
-          <svg
-            aria-hidden
-            viewBox="0 0 240 16"
-            className="mt-2 h-4 w-48 md:w-64"
-            fill="none"
-          >
-            <path
-              d="M2 9C30 2 60 16 90 9s60-7 90 0 40 7 58-1"
-              stroke="#FF6B6B"
-              strokeWidth="4"
-              strokeLinecap="round"
-            />
-          </svg>
-
-          <p className="mt-4 max-w-xl text-sm md:text-base leading-relaxed text-[#4A4A4A]">
-            Hand-picked snippets for the things you write every day. Add one
-            to your library with a single click — fill in the variables later.
+        <PageHeader title="Snippet Store">
+          <p className="my-4 max-w-xl text-sm md:text-base leading-relaxed text-[#4A4A4A]">
+            Hand-picked snippets for the things you write every day. Add one to
+            your library with a single click — fill in the variables later.
           </p>
-        </header>
+        </PageHeader>
 
         {/* ── SearchBar reused here, scoped to ?store-q= ── */}
         <SearchBar
