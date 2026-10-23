@@ -4,12 +4,13 @@ import { Route, Routes } from "react-router-dom";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import { LOCAL_STORAGE_KEY } from "./config/constants";
+import About from "./pages/About";
+import Admin from "./pages/Admin";
 import ChangelogData from "./pages/Changelog";
 import Home from "./pages/Home";
 import SnippetStore from "./pages/SnippetStore";
 import appReducer from "./Utility/appReducer";
 import { AppContext, getInitialState } from "./Utility/util";
-import Admin from "./pages/Admin";
 
 const App: React.FC = () => {
   const [state, dispatch] = useReducer(appReducer, getInitialState());
@@ -48,6 +49,7 @@ const App: React.FC = () => {
         <Route path="/changelog" element={<ChangelogData />} />
         <Route path="/store" element={<SnippetStore />} />
         <Route path="/admin" element={<Admin />} />
+        <Route path="/about" element={<About />} />
       </Routes>
       <Footer />
     </AppContext.Provider>
