@@ -11,6 +11,7 @@ import Home from "./pages/Home";
 import SnippetStore from "./pages/SnippetStore";
 import appReducer from "./Utility/appReducer";
 import { AppContext, getInitialState } from "./Utility/util";
+import SnippetForm from "./components/SnippetForm";
 
 const App: React.FC = () => {
   const [state, dispatch] = useReducer(appReducer, getInitialState());
@@ -51,6 +52,7 @@ const App: React.FC = () => {
         <Route path="/admin" element={<Admin />} />
         <Route path="/about" element={<About />} />
       </Routes>
+      <SnippetForm />
       <Footer />
     </AppContext.Provider>
   );

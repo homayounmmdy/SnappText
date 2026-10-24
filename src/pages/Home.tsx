@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import AllSnippets from "../components/AllSnippets";
 import PlaceholderModal from "../components/PlaceholderModal";
-import SnippetForm from "../components/SnippetForm";
 import UserJourney from "../components/UserJourney";
 import Workspace from "../components/Workspace";
 import { AppContext } from "../Utility/util";
@@ -20,7 +19,6 @@ const Home = () => {
           <Workspace />
         </main>
         <PlaceholderModal />
-        <SnippetForm />
       </div>
     </>
   );
