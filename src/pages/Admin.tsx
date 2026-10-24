@@ -44,7 +44,7 @@ const formatBytes = (n: number) => {
   return `${(n / 1024 / 1024).toFixed(2)} MB`;
 };
 
-const formatDate = (d: Date | string) => {
+const formatDate = (d: Date | string | number) => {
   const date = new Date(d);
   if (isNaN(date.getTime())) return "—";
   return date.toLocaleDateString("en-US", {

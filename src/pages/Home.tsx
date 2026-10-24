@@ -7,7 +7,9 @@ import Workspace from "../components/Workspace";
 import { AppContext } from "../Utility/util";
 
 const Home = () => {
-  const { state, dispatch } = useContext(AppContext);
+  const context = useContext(AppContext);
+  if (!context) return null;
+  const { state, dispatch } = context;
 
   return (
     <>

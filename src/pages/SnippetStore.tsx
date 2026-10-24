@@ -1,6 +1,6 @@
 import { Check, Plus, X } from "lucide-react";
 import { useContext, useMemo, useState } from "react";
-import { notify } from "../components/notify";
+import { notify } from "../components/Notify";
 import PageHeader from "../components/PageHeader";
 import SearchBar from "../components/SearchBar";
 import {
@@ -37,7 +37,6 @@ const SnippetStore = () => {
     });
   }, [query, category]);
 
-  const addedCount = snippetStore.filter(isAdded).length;
 
   const handleAdd = (snippet: StoreSnippet) => {
     if (isAdded(snippet)) {
